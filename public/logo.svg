@@ -1,0 +1,16 @@
+<svg width="45" height="45" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background for visibility -->
+  ircle cx="22.5" cy="22.5" r="21" fill="#1a1a1a"/>
+  
+  <!-- Outer ring -->
+  ircle cx="22.5" cy="22.5" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Inner glow circle -->
+  ircle cx="22.5" cy="22.5" r="17" fill="#10b981" opacity="0.15"/>
+  
+  <!-- Middle ring -->
+  ircle cx="22.5" cy="22.5" r="13" fill="none" stroke="#10b981" stroke-width="1.5"/>
+  
+  <!-- XIX Text -->
+  <text x="22.5" y="28" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle" letter-spacing="1">XIX</text>
+</svg>

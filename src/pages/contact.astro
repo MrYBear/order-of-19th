@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+
+const pageTitle = "Join the Order";
+const pageDescription = "Become an Associate of the Order of the 19th and join a brotherhood united by tradition";
+---
+
+<Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
+  <style is:global>
+    /* Hide the ShareButtons and PostMeta */
+    .prose > div:first-child,
+    .prose > div:nth-child(2) {
+      display: none !important;
+    }
+    /* Hide the footer on this page */
+    footer#contact {
+      display: none !important;
+    }
+  </style>
+
+  <!-- Rest of your page content stays the same -->
+
+  <!-- Hero Section -->
+  <section class="w-full py-16 md:py-24">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#0ea472]">
+        Join the Order
+      </h1>
+      <p class="text-xl md:text-2xl text-center text-neutral-700 dark:text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Become an Associate of the Order of the 19th and preserve the timeless tradition of the 19th hole
+      </p>
+    </div>
+  </section>
+
+  <!-- Membership Benefits Section -->
+  <section class="w-full py-12 bg-neutral-50 dark:bg-neutral-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-100">
+        What You Receive
+      </h2>
+      
+      <div class="space-y-6">
+        <!-- Benefit 1 -->
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
+          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
+            Official Certificate of Association
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Upon joining, you'll receive a digital certificate recognizing you as an Associate of the Order. You're free to use this title wherever legally permitted (though this isn't legal advice).
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
+          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
+            Your Unique Member ID
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Receive a personal Member ID to use on social media posts. When sharing your golf stories and 19th hole moments, tag us with your ID so we can feature your content and give you proper recognition.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
+          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
+            Monthly Stories from the 19th Hole
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Optionally receive our monthly newsletter featuring the best stories, wisdom, and moments from golfers around the world who keep the tradition alive.
+          </p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
+          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
+            Earn Your Title
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            If your story is chosen and featured in our Archive, you'll earn the right to upgrade your title. Choose from <span class="font-semibold">Brother of the Order</span>, <span class="font-semibold">Sister of the Order</span>, or <span class="font-semibold">Member of the Order</span>. We'll issue you a new certificate to mark this honor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Form Section -->
+  <section class="w-full py-16">
+    <div class="mx-auto max-w-2xl px-4">
+      <h2 class="text-3xl font-bold mb-4 text-center text-neutral-800 dark:text-neutral-100">
+        Become an Associate
+      </h2>
+      <p class="text-center text-neutral-700 dark:text-neutral-300 mb-8">
+        Join the brotherhood in just a few moments
+      </p>
+
+      <!-- Form -->
+      <form id="joinForm" class="space-y-6 p-8 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl">
+        <!-- Family Name -->
+        <div>
+          <label for="familyName" class="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200">
+            Family Name <span class="text-[#0ea472]">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="familyName" 
+            name="familyName" 
+            required
+            class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent"
+            placeholder="Your family name"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200">
+            Email Address <span class="text-[#0ea472]">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent"
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <!-- Certificate Consent (Required) -->
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <input 
+              type="checkbox" 
+              id="certificateConsent" 
+              name="certificateConsent" 
+              required
+              class="mt-1 h-4 w-4 text-[#0ea472] border-neutral-300 dark:border-neutral-600 rounded focus:ring-[#0ea472]"
+            />
+            <label for="certificateConsent" class="ml-3 text-sm text-neutral-700 dark:text-neutral-300">
+              I agree to receive my certificate via email <span class="text-[#0ea472]">(required for membership)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Newsletter Consent (Optional) -->
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <input 
+              type="checkbox" 
+              id="newsletterConsent" 
+              name="newsletterConsent"
+              class="mt-1 h-4 w-4 text-[#0ea472] border-neutral-300 dark:border-neutral-600 rounded focus:ring-[#0ea472]"
+            />
+            <label for="newsletterConsent" class="ml-3 text-sm text-neutral-700 dark:text-neutral-300">
+              Optional: Yes, send me monthly club newsletters (unsubscribe anytime)
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit"
+          class="w-full px-8 py-4 bg-[#0ea472] !text-white font-semibold rounded-lg hover:bg-[#0c8a5f] active:bg-[#0a7350] transition-colors duration-200 shadow-lg hover:shadow-xl"
+        >
+          Join the Order
+        </button>
+
+        <!-- Success/Error Messages -->
+        <div id="formMessage" class="hidden mt-4 p-4 rounded-lg"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Privacy & Story Selection Section -->
+  <section class="w-full py-12 bg-neutral-50 dark:bg-neutral-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-2xl font-bold mb-6 text-center text-neutral-800 dark:text-neutral-100">
+        Your Privacy & Our Process
+      </h2>
+      
+      <div class="space-y-6 text-neutral-700 dark:text-neutral-300">
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-2">We Value Your Privacy</h3>
+          <p class="leading-relaxed">
+            Your information is sacred to us. We will never share, sell, or use your details in any way beyond what's listed above. The Order prides itself on discretion and anonymity. Your email and family name are used solely for certificate delivery and optional newsletters.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-2">When Your Story is Chosen</h3>
+          <p class="leading-relaxed">
+            If your story from Reddit, Facebook, or other social media is selected for our Archive, we'll reach out to congratulate you and request permission before featuring it. Your consent always comes first.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Temporary Form Handler Script -->
+  <script>
+    document.getElementById('joinForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target as HTMLFormElement);
+      const messageDiv = document.getElementById('formMessage');
+      
+      if (!messageDiv) return;
+      
+      // Show processing message
+      messageDiv.className = 'mt-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+      messageDiv.textContent = 'Processing your membership...';
+      messageDiv.classList.remove('hidden');
+      
+      // TODO: Replace with actual Google Sheets integration
+      // For now, just simulate success
+      setTimeout(() => {
+        messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+        messageDiv.textContent = 'Welcome to the Order! Check your email for your certificate and Member ID.';
+        (e.target as HTMLFormElement).reset();
+      }, 1500);
+      
+      // Log form data for now (will be replaced with Google Sheets submission)
+      console.log('Form Data:', {
+        familyName: formData.get('familyName'),
+        email: formData.get('email'),
+        certificateConsent: formData.get('certificateConsent') === 'on',
+        newsletterConsent: formData.get('newsletterConsent') === 'on',
+        timestamp: new Date().toISOString(),
+        ipAddress: 'Will be captured server-side'
+      });
+    });
+  </script>
+</Layout>

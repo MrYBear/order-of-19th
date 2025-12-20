@@ -4,66 +4,115 @@ import Footer from '../components/sections/Footer.astro';
 import Header from '../components/sections/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import HeroSection from '../components/sections/HeroSection.astro';
-import SkillsSection from '../components/sections/SkillsSection.astro';
-import { skills } from '../data/skills';
-import WorkExperience from '../components/sections/WorkExperience.astro';
-import { work } from '../data/work';
-import Studies from '../components/sections/Studies.astro';
-import { studies } from '../data/studies';
-import Carousel from '../components/ui/carousel/Carousel.astro';
-import { logos } from '../data/logos';
-import ArrowSeparator from '../components/ui/separator/ArrowSeparator.astro'
-import GlowLineSeparator from '../components/ui/separator/GlowLineSeparator.astro'
-
-// Logos
-import astroLogo from '../assets/logos/Astro-logo.svg';
-import googleAdsLogo from '../assets/logos/GoogleAds-logo.svg';
-import posthogLogo from '../assets/logos/posthog-logo.svg';
-import notionLogo from '../assets/logos/Notion-logo.svg';
-import figmaLogo from '../assets/logos/Figma-logo.svg';
-
-// skills are imported from src/data/skills
 ---
 
 <!doctype html>
 <html lang="en" data-theme="dark" class="dark">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <!-- JSON-LD: Organization -->
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Site Author',
+      name: 'Order of the 19th',
       url: new URL('/', Astro.site).toString(),
       logo: new URL('/favicon.svg', Astro.site).toString(),
-      sameAs: [
-        'https://x.com/guihubie',
-        'https://www.linkedin.com/in/guilherme-hubie/',
-      ],
     })} />
-	</head>
-	<body>
-		<Header />
-		<main>
+  </head>
+  <body>
+    <Header />
+    <main>
       <HeroSection
-        title="Your Headline Goes Here!"
-        subtitle="I build softwares that brings you loyal subscribers."
+        title="Welcome to the Order of the 19th"
+        subtitle="An exclusive society united by tradition, excellence, and the pursuit of the perfect round."
         showCTA
-        primaryCTA={{ text: 'View Projects', href: '/portfolio' }}
-        secondaryCTA={{ text: 'Read Blog', href: '/blog' }}
+        primaryCTA={{ text: 'Meet the Founders', href: '/portfolio' }}
+        secondaryCTA={{ text: 'Explore the Archive', href: '/blog' }}
       />
      
+      <section class="py-12 max-w-4xl mx-auto px-4">
+        <div class="prose prose-invert mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-6">What is the Order?</h2>
+          <p class="text-lg text-center">
+            The Order of the 19th is a private members' club dedicated to golf tradition, 
+            camaraderie, and storytelling. Founded by nineteen individuals who share a passion 
+            for the game and its rich history.
+          </p>
+          <p class="text-lg text-center mt-4">
+            Within these pages, discover the founding members, explore historic moments that shaped 
+            the game, and delve into The Archive, our collection of stories, insights, and adventures 
+            from the fairways.
+          </p>
+        </div>
+      </section>
 
-    <section class="py-6">
-      <ArrowSeparator />
-      <SkillsSection title="Skills & Tools" skills={skills} />   
-      <ArrowSeparator />
-      <WorkExperience title="Work Experience" items={work} />
-      <ArrowSeparator />
-      <Studies title="Studies" items={studies} />
-      <GlowLineSeparator />
-    </section>
-		</main>
-		<Footer />
-	</body>
+      <!-- Navigation Cards -->
+      <section class="py-12 max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Card 1: Founding Members -->
+          <a href="/portfolio" class="block p-8 rounded-2xl border transition-all duration-300 bg-white dark:bg-[#1e1e1e] border-gray-200 dark:border-gray-700/50 hover:border-emerald-500/50 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] no-underline">
+            <div class="flex justify-center mb-4">
+              <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-3 text-gray-900 dark:text-white underline decoration-emerald-500/50">Founding Members</h3>
+            <p class="text-center text-gray-700 dark:text-gray-300">
+              Meet the nineteen individuals who established the Order and their unique stories.
+            </p>
+          </a>
+
+          <!-- Card 2: History & Key Moments -->
+          <a href="/projects" class="block p-8 rounded-2xl border transition-all duration-300 bg-white dark:bg-[#1e1e1e] border-gray-200 dark:border-gray-700/50 hover:border-emerald-500/50 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] no-underline">
+            <div class="flex justify-center mb-4">
+              <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-3 text-gray-900 dark:text-white underline decoration-emerald-500/50">History & Key Moments</h3>
+            <p class="text-center text-gray-700 dark:text-gray-300">
+              Nineteen defining moments in golf history that shaped the world today.
+            </p>
+          </a>
+
+          <!-- Card 3: The Archive -->
+          <a href="/blog" class="block p-8 rounded-2xl border transition-all duration-300 bg-white dark:bg-[#1e1e1e] border-gray-200 dark:border-gray-700/50 hover:border-emerald-500/50 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] no-underline">
+            <div class="flex justify-center mb-4">
+              <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-3 text-gray-900 dark:text-white underline decoration-emerald-500/50">The Archive</h3>
+            <p class="text-center text-gray-700 dark:text-gray-300">
+              Stories, insights, and adventures from our members on and off the course.
+            </p>
+          </a>
+
+          <!-- Card 4: Join the Order -->
+          <a href="/contact" class="block p-8 rounded-2xl border transition-all duration-300 bg-white dark:bg-[#1e1e1e] border-gray-200 dark:border-gray-700/50 hover:border-emerald-500/50 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] no-underline">
+            <div class="flex justify-center mb-4">
+              <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-3 text-gray-900 dark:text-white underline decoration-emerald-500/50">Join the Order</h3>
+            <p class="text-center text-gray-700 dark:text-gray-300">
+              Interested in membership? Connect with us to learn more about joining.
+            </p>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+    <Footer />
+  </body>
 </html>

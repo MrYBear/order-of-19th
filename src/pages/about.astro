@@ -1,27 +1,153 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import GlowLineSeparator from '@/components/ui/separator/GlowLineSeparator.astro';
-const pageTitle = 'About Me';
-const pageDescription = 'Learn more about my background and approach to software engineering.';
+import { Image } from "astro:assets";
+import chuiwanImage from "../assets/images/Chuiwan.jpeg";
+
+const pageTitle = "About the Order";
+const pageDescription = "Discover the ancient history and philosophy of the Order of the 19th";
 ---
 
 <Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
-  <p>
-    Hey! I'm a senior software engineer who loves designing reliable systems and shipping products that feel great to use.
-  </p>
-  <p>
-    I work across the stack with TypeScript, Node.js, React/Next.js, and PostgreSQL. I care deeply about readable code,
-    strong tests, and observability. My approach: ship small, iterate quickly, measure outcomes.
-  </p>
-  <p>
-    Recent highlights include leading a migration from a monolith to well‑scoped services, improving p95 latency,
-    and introducing CI/CD with preview environments and quality gates.
-  </p>
-  <p>
-    Outside of feature work, I enjoy mentoring, documentation, and building design‑system components that make teams faster.
-    Always learning—and always happy to collaborate on meaningful problems.
-  </p>
+  <style is:global>
+    /* Hide the ShareButtons (social icons at top) */
+    .prose > div:first-child {
+      display: none !important;
+    }
+    /* Hide the PostMeta (author section) */
+    .prose > div:nth-child(2) {
+      display: none !important;
+    }
+  </style>
 
-  <GlowLineSeparator />
+  <!-- Hero Section -->
+  <section class="w-full py-16 md:py-24">
+    <div class="mx-auto max-w-5xl px-4">
+      <h1 class="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#0ea472]">
+        History of the Order
+      </h1>
+      <p class="text-xl md:text-2xl text-center text-neutral-700 dark:text-neutral-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Uncovering the ancient origins of golf and the timeless wisdom hidden within the game
+      </p>
+    </div>
+  </section>
+
+  <!-- Image and Origins Section -->
+  <section class="w-full py-8 bg-neutral-50 dark:bg-neutral-900/50">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
+            The True Origins
+          </h2>
+          <div class="space-y-4">
+            <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              To some, the exact origins of golf remain unclear. The most widely accepted theory places its birth in Scotland during the High Middle Ages. But at the Order of the 19th, we know a deeper truth.
+            </p>
+            <p class="font-semibold italic text-lg text-neutral-800 dark:text-neutral-200">
+              Golf is far more than a game. It is an exercise in which one hones life skills through ancient rituals hidden within the sport.
+            </p>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-[#0ea472]/20">
+            <Image 
+              src={chuiwanImage} 
+              alt="Ancient Chinese Chuiwan painting showing the origins of golf" 
+              class="w-full h-auto"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chuiwan Section -->
+  <section class="w-full py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="relative pl-8 border-l-4 border-[#0ea472]">
+        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
+        <span class="text-sm font-bold text-[#0ea472] uppercase tracking-wide">8th - 14th Century</span>
+        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
+          Chuiwan: The Ancient Game
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          Chuiwan ("chui" means striking and "wan" means small ball), a Chinese game played between the eighth and fourteenth centuries. A Ming Dynasty scroll dating back to 1368 entitled "The Autumn Banquet" shows a member of the Chinese Imperial court swinging what appears to be a golf club at a small ball with the aim of sinking it into a hole.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
+          The game is thought to have been introduced into Europe during the Middle Ages via the Silk Road travellers. The club, ball, course and rules of Chui Wan were almost the same as those of modern golf. In Europe, the game of golf was first seen in paintings of the 14th and 15th centuries, but that was several hundred years after the Chinese games of chui wan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Bans Section -->
+  <section class="w-full py-16 bg-neutral-50 dark:bg-neutral-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="relative pl-8 border-l-4 border-[#0ea472]">
+        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
+        <span class="text-sm font-bold text-[#0ea472] uppercase tracking-wide">1457 - 1658</span>
+        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
+          The Birth of the Order: Golf Banned
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          Golf in Scotland was first recorded in the 15th century, and the modern game was first developed and established in the country. Legend holds that when King James II banned golf in 1457, a secret brotherhood was born: The Order of the 19th. While official records claim the ban preserved archery skills, the truth runs deeper.
+        </p>
+        <div class="my-6 p-6 bg-[#0ea472]/10 border-l-4 border-[#0ea472] rounded-r-lg">
+          <p class="text-neutral-800 dark:text-neutral-200 italic font-medium">
+            The ban was rooted in control of the people and fear of free will. The life skills taught through golf, the independent thinking it fostered, went against the ruling kings and traditional churches.
+          </p>
+        </div>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          The proceeding bans by King James III (1470) and King James IV (1491) prove the threat this 'game' posed. This fear persisted even 200 years later when golf was banned from the streets of Albany, New York in 1658, marking the first reference to golf in America.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- St Andrews Section -->
+  <section class="w-full py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="relative pl-8 border-l-4 border-[#0ea472]">
+        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
+        <span class="text-sm font-bold text-[#0ea472] uppercase tracking-wide">1502 - 1574</span>
+        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
+          The Ancient Links & St Andrews
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          Golf, unlike most ball games, cannot and does not utilize a standardized playing area, and coping with the varied terrains encountered on different courses is a key part of the game. This enables The Order to carry on its traditions on an ancient links course dating to before 1574.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
+          When the ban on golf was lifted in 1502 many people were scared to openly say they participated in the sport. It was another 50 years before the first records showed any mention of St Andrews in 1552. It was Archbishop John Hamilton that gave the townspeople of St. Andrews the right to play on the links, and with it, the sacred tradition of the 19th hole was born.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="w-full py-16 bg-gradient-to-br from-[#0ea472]/5 to-neutral-50 dark:from-[#0ea472]/10 dark:to-neutral-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="text-center">
+        <div class="inline-block p-3 bg-[#0ea472] rounded-full mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
+          The Philosophy of the 19th
+        </h2>
+        <div class="max-w-3xl mx-auto space-y-6">
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            To many golfers, the Old Course at St Andrews is considered to be a site of pilgrimage. Within the Order, we see every round of golf as a pilgrimage, with its true conclusion at the 19th hole.
+          </p>
+          <div class="p-8 bg-white dark:bg-neutral-800 rounded-2xl shadow-xl">
+            <p class="text-xl text-neutral-800 dark:text-neutral-200 italic leading-relaxed font-medium">
+              "Modern golf forgets that the 18th green is not the finish line. The true game concludes at the 19th hole, where stories are told and bonds are forged. The Order preserves what centuries knew: golf is more than a score. We gather not to compete, but to connect."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </Layout>

@@ -1,5 +1,4 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = 'Site Author – Personal Blog & Portfolio';
-export const SITE_DESCRIPTION = 'Growth engineering, analytics, and product marketing notes. Case studies, experiments, and projects by Site Author.';
+export const SITE_TITLE = 'Order of the 19th';
+export const SITE_DESCRIPTION = 'Eighteen lives across history. One story across time.';
+export const ACCENT_COLOR = '#059669'; // emerald-600 green
+export const FOOTER_TEXT = `© ${new Date().getFullYear()} Order of the 19th. All rights reserved.`;
