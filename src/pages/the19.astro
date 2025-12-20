@@ -2,25 +2,154 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/sections/Header.astro";
 import Footer from "../components/sections/Footer.astro";
-import Projects from "../components/sections/Projects.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import GlowLineSeparator from "../components/ui/separator/GlowLineSeparator.astro";
 ---
 
-
+<!doctype html>
 <html lang="en" data-theme="dark" class="dark">
   <head>
-    <BaseHead title="Portfolio" description="Selected projects and playbooks" />
+    <BaseHead title="The 19 - Order of the 19th" description="Meet the legendary members who shaped the game and those who carry the tradition forward." />
   </head>
   <body>
     <Header />
-    <main>
-      <HeroSection title="Selected Projects" subtitle="A few apps, templates, and playbooks I built or maintain." />
-      <Projects />
-      <GlowLineSeparator />
+    <main class="mx-auto max-w-7xl px-4 py-12">
+      
+      <!-- THE HEAD OF THE ORDER - Hero Section -->
+      <section class="mb-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[color:var(--accent)]">
+          The Head of the Order
+        </h1>
+        <p class="text-xl mb-12 text-[color:var(--color-text-secondary)] max-w-3xl mx-auto">
+          Our eternal founder, whose vision and passion laid the foundation for all who follow
+        </p>
+        
+        <div class="max-w-2xl mx-auto bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-8 hover:shadow-xl transition-shadow">
+          <div class="w-48 h-48 mx-auto mb-6 rounded-full bg-gray-700 overflow-hidden">
+            <img src="https://via.placeholder.com/200" alt="Head of the Order" class="w-full h-full object-cover" />
+          </div>
+          
+          <h2 class="text-3xl font-bold mb-2">Brother Alastair MacDougall</h2>
+          <p class="text-[color:var(--color-text-secondary)] mb-4">St Andrews, Scotland • 1850-1925</p>
+          <p class="text-lg mb-4 text-[color:var(--accent)]">⛳ Old Course at St Andrews</p>
+          
+          <blockquote class="text-xl italic my-6 px-4 border-l-4 border-[color:var(--accent)]">
+            "Golf is not merely a game, it is a communion with the land and a test of one's character."
+          </blockquote>
+          
+          <p class="text-[color:var(--color-text)] mb-6">
+            In 1891, on the windswept shores of St Andrews, Alastair made golf history with a legendary round in a storm that would have stopped lesser men. His unwavering spirit became the foundation of our Order.
+          </p>
+          
+          <a href="/blog" class="inline-block px-6 py-3 bg-[color:var(--accent)] text-white rounded-md hover:opacity-90 transition-opacity">
+            Read His Legend →
+          </a>
+        </div>
+      </section>
+
+      <!-- THE FRONT NINE -->
+      <section class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4 text-[color:var(--accent)]">The Front Nine</h2>
+          <p class="text-xl text-[color:var(--color-text-secondary)] max-w-3xl mx-auto">
+            Legends Who Shaped the Game
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Member Card 1 -->
+          <div class="bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 overflow-hidden">
+              <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Brother Henry Morrison</h3>
+            <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Edinburgh, Scotland • 1875-1952</p>
+            <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Muirfield</p>
+            <blockquote class="text-sm italic my-4 px-3 border-l-2 border-[color:var(--accent)]">
+              "Every fairway tells a story if you listen."
+            </blockquote>
+            <p class="text-sm text-[color:var(--color-text)] mb-4">
+              The 1920 Open Championship. Heavy rain. Final hole. Henry's impossible shot from the rough became golf folklore...
+            </p>
+            <a href="/blog" class="text-[color:var(--accent)] hover:underline text-sm">
+              Read Their Legend →
+            </a>
+          </div>
+
+          <!-- Repeat for members 2-9 with different placeholder data -->
+          <div class="bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 overflow-hidden">
+              <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Brother William Ashford</h3>
+            <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Augusta, Georgia • 1890-1968</p>
+            <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Augusta National</p>
+            <blockquote class="text-sm italic my-4 px-3 border-l-2 border-[color:var(--accent)]">
+              "Tradition is the soul of the game."
+            </blockquote>
+            <p class="text-sm text-[color:var(--color-text)] mb-4">
+              In 1934, during the inaugural Masters, William's final putt rolled for what seemed an eternity before dropping...
+            </p>
+            <a href="/blog" class="text-[color:var(--accent)] hover:underline text-sm">
+              Read Their Legend →
+            </a>
+          </div>
+
+          <!-- Add 7 more similar cards for remaining Front Nine members -->
+          <div class="bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 overflow-hidden">
+              <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Brother James Fletcher</h3>
+            <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">London, England • 1898-1975</p>
+            <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Royal St George's</p>
+            <blockquote class="text-sm italic my-4 px-3 border-l-2 border-[color:var(--accent)]">
+              "Golf reveals character more than it builds it."
+            </blockquote>
+            <p class="text-sm text-[color:var(--color-text)] mb-4">
+              The 1949 British Open. Gale-force winds. When others withdrew, James played on and his courage inspired a generation...
+            </p>
+            <a href="/blog" class="text-[color:var(--accent)] hover:underline text-sm">
+              Read Their Legend →
+            </a>
+          </div>
+
+          <!-- Continue pattern for remaining 6 Front Nine members -->
+        </div>
+      </section>
+
+      <!-- THE BACK NINE -->
+      <section>
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4 text-[color:var(--accent)]">The Back Nine</h2>
+          <p class="text-xl text-[color:var(--color-text-secondary)] max-w-3xl mx-auto">
+            Guardians of Tradition
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Member Card 10 -->
+          <div class="bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-700 overflow-hidden">
+              <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">Brother Marcus Chen</h3>
+            <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Hong Kong • Born 1978</p>
+            <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Pebble Beach</p>
+            <blockquote class="text-sm italic my-4 px-3 border-l-2 border-[color:var(--accent)]">
+              "Every round is a new chapter waiting to be written."
+            </blockquote>
+            <p class="text-sm text-[color:var(--color-text)] mb-4">
+              During the 2019 amateur championship, Marcus faced the hardest decision of his golfing life...
+            </p>
+            <a href="/blog" class="text-[color:var(--accent)] hover:underline text-sm">
+              Read Their Legend →
+            </a>
+          </div>
+
+          <!-- Repeat for remaining 8 Back Nine members with placeholder data -->
+        </div>
+      </section>
+
     </main>
     <Footer />
   </body>
 </html>
-
-
