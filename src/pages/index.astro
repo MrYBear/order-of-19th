@@ -27,27 +27,75 @@ import HeroSection from '../components/sections/HeroSection.astro';
         showCTA
       />
      
-      <section class="py-12 max-w-4xl mx-auto px-4">
+      <!-- Expanded What is the Order Section -->
+      <section class="py-16 max-w-4xl mx-auto px-4">
         <div class="prose prose-invert mx-auto">
-          <h2 class="text-3xl font-bold text-center mb-6">What is the Order?</h2>
-          <p class="text-lg text-center">
-            The Order of the 19th is a private members' club dedicated to golf tradition, 
-            camaraderie, and storytelling. Founded by nineteen individuals who share a passion 
-            for the game and its rich history.
-          </p>
-          <p class="text-lg text-center mt-4">
-            Within these pages, discover the founding members, explore historic moments that shaped 
-            the game, and delve into The Archive, our collection of stories, insights, and adventures 
-            from the fairways.
-           <div class="text-center mt-8">
-            <a href="/about" class="inline-block px-6 py-3 bg-[color:var(--accent)] !text-white rounded-md hover:opacity-90 transition-opacity">
-              About the Order →
-              </a>
-              </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">What is the Order of the 19th?</h2>
+          
+          <div class="space-y-6 text-lg">
+            <p class="text-center">
+              For centuries, the most important conversations in golf happened not on the course, but afterwards. 
+              In clubhouses, taverns, and bars around the world, the <strong class="text-[color:var(--accent)]">19th hole</strong> became 
+              where deals were made, friendships forged, and wisdom shared over post-round drinks.
+            </p>
+            
+            <div class="my-8 p-6 bg-neutral-800/50 rounded-xl border-2 border-[color:var(--accent)]/30">
+              <p class="text-xl font-semibold mb-3 text-center">
+                The modern world has changed everything.
+              </p>
+              <p class="text-base text-center">
+                Today's golfers rush from the 18th green to their cars. The 19th hole sits empty whilst players 
+                chase the next tee time or hurry back to endless obligations. The art of the post-round story, 
+                the bonds formed through unhurried conversation—these traditions are being lost.
+              </p>
+            </div>
 
-          </p>
+            <p class="text-center">
+              The Order of the 19th is a <strong>brotherhood of golfers</strong> dedicated to preserving what makes 
+              golf truly timeless. Founded by nineteen individuals who refuse to let the soul of the game disappear, 
+              we are building a digital sanctuary where the traditions of the 19th hole live on.
+            </p>
+
+            <p class="text-center">
+              We trace our lineage to the informal gatherings at St Andrews in the 1500s. For generations, 
+              these traditions thrived in clubhouses worldwide. In 2025, we step into the light—preserving 
+              centuries of wisdom whilst embracing the digital age.
+            </p>
+
+<div class="grid md:grid-cols-3 gap-6 mt-10 mb-10">
+  <div class="text-center p-6 bg-neutral-800/30 rounded-lg border border-[color:var(--accent)]/20">
+    <div class="text-4xl font-bold text-[color:var(--accent)] mb-2">500+</div>
+    <div class="text-sm text-neutral-400">Years of Tradition</div>
+  </div>
+  <div class="text-center p-6 bg-neutral-800/30 rounded-lg border border-[color:var(--accent)]/20">
+    <div class="text-4xl font-bold text-[color:var(--accent)] mb-2">200+</div>
+    <div class="text-sm text-neutral-400">Countries with Members</div>
+  </div>
+  <div class="text-center p-6 bg-neutral-800/30 rounded-lg border border-[color:var(--accent)]/20">
+    <div class="text-4xl font-bold text-[color:var(--accent)] mb-2">∞</div>
+    <div class="text-sm text-neutral-400">Stories to Share</div>
+  </div>
+</div>
+
+
+            <p class="text-center text-xl font-medium italic text-[color:var(--accent)]/90">
+              We gather not to compete, but to connect. We are the keepers of golf's social soul.
+            </p>
+
+            <div class="text-center mt-10">
+              <a href="/about" class="inline-flex items-center gap-2 px-8 py-4 bg-[color:var(--accent)] !text-white rounded-md hover:opacity-90 transition-opacity text-lg font-semibold">
+                Discover Our Full History
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- Rest of your page continues below -->
+
 
       <!-- Navigation Cards -->
       <section class="py-12 max-w-6xl mx-auto px-4">
