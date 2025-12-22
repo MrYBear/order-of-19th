@@ -1,0 +1,103 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/sections/Header.astro';
+import Footer from '../../components/sections/Footer.astro';
+import members from '../../data/members.json';
+
+export async function getStaticPaths() {
+  return members.map((member) => ({
+    params: { slug: member.slug },
+    props: { member }
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${member.name} - Order of the 19th`} description={member.bio} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section with Member Name -->
+      <section class="py-16 max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            {member.name}
+          </h1>
+          {member.nickname && (
+            <p class="text-xl text-gray-600 dark:text-gray-400 italic">
+              "{member.nickname}"
+            </p>
+          )}
+        </div>
+
+        <!-- Member Card - Similar to The 19 page style -->
+        <div class="bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-700/50 rounded-2xl p-8 mb-12">
+          {member.image && (
+            <div class="flex justify-center mb-6">
+              <img 
+                src={member.image} 
+                alt={member.name}
+                class="w-48 h-48 rounded-lg object-cover border-2 border-emerald-500/50"
+              />
+            </div>
+          )}
+          
+          <div class="space-y-4 text-center">
+            {member.location && (
+              <p class="text-gray-700 dark:text-gray-300">
+                <strong>Location:</strong> {member.location}
+              </p>
+            )}
+            {member.homeClub && (
+              <p class="text-gray-700 dark:text-gray-300">
+                ⛳ {member.homeClub}
+              </p>
+            )}
+            {member.handicap && (
+              <p class="text-gray-700 dark:text-gray-300">
+                <strong>Handicap:</strong> {member.handicap}
+              </p>
+            )}
+            {member.joined && (
+              <p class="text-gray-700 dark:text-gray-300">
+                <strong>Joined:</strong> {member.joined}
+              </p>
+            )}
+            {member.quote && (
+              <blockquote class="text-lg italic text-gray-600 dark:text-gray-400 border-l-4 border-emerald-500 pl-4 mt-6">
+                {member.quote}
+              </blockquote>
+            )}
+          </div>
+        </div>
+
+        <!-- Full Biography Section -->
+        <div class="prose prose-lg prose-invert mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Biography</h2>
+          <div class="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+            <p>{member.fullBio}</p>
+          </div>
+        </div>
+
+        <!-- Back to The 19 Button -->
+        <div class="text-center mt-12">
+          <a 
+            href="/the19" 
+            class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-semibold no-underline"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to The 19
+          </a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
