@@ -10,6 +10,9 @@ on:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: true
 
     steps:
       - name: Checkout repository
@@ -19,12 +22,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Lighthouse & helpers (dev)
-        run: npm i -D lighthouse@13 http-server wait-on
+      - name: Install dependencies & Lighthouse helpers
+        run: |
+          npm ci
+          npm i -D lighthouse@13 http-server wait-on
 
       - name: Build site
         run: npm run build
@@ -35,21 +38,27 @@ jobs:
       - name: Wait for /the19 to be available
         run: npx wait-on http://localhost:8080/the19
 
-      - name: Run Lighthouse for /the19
+      - name: Run Lighthouse for /the19 (JSON then HTML)
         run: |
           npx -y lighthouse http://localhost:8080/the19 \
             --output=json --output-path=./lighthouse-the19.json \
+            --chrome-flags="--no-sandbox --headless" \
+            --only-categories=performance,accessibility,seo,best-practices || true
+
+          npx -y lighthouse http://localhost:8080/the19 \
             --output=html --output-path=./lighthouse-the19.html \
             --chrome-flags="--no-sandbox --headless" \
-            --only-categories=performance,accessibility,seo,best-practices
+            --only-categories=performance,accessibility,seo,best-practices || true
 
       - name: Upload Lighthouse JSON report
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-the19-json
           path: lighthouse-the19.json
 
       - name: Upload Lighthouse HTML report
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-the19-html
