@@ -28,12 +28,12 @@ if (featured) {
 	<head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     {totalPages > 1 && (
-      <link rel="next" href={`/blog/page/2/`} />
+      <link rel="next" href={`/archive/page/2/`} />
     )}
 	</head>
 	<body>
         <Header />
-        <BlogHero title="Blog" subtitle="Practical insights on data analysis, visualization, and getting more from your analytics tools." />
+        <BlogHero title="The Archive" subtitle="Practical insights on data analysis, visualization, and getting more from your analytics tools." />
         <main class="use-utility-layout mx-auto max-w-5xl px-3 py-5 space-y-7">
             {featured && (
               <section class="card-surface p-4 md:p-5 hover-lift sw-featured-card">
