@@ -1,0 +1,56 @@
+name: Lighthouse CI (the19)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Lighthouse & helpers (dev)
+        run: npm i -D lighthouse@13 http-server wait-on
+
+      - name: Build site
+        run: npm run build
+
+      - name: Serve site (dist) on :8080
+        run: npx http-server ./dist -p 8080 -c-1 &
+
+      - name: Wait for /the19 to be available
+        run: npx wait-on http://localhost:8080/the19
+
+      - name: Run Lighthouse for /the19
+        run: |
+          npx -y lighthouse http://localhost:8080/the19 \
+            --output=json --output-path=./lighthouse-the19.json \
+            --output=html --output-path=./lighthouse-the19.html \
+            --chrome-flags="--no-sandbox --headless" \
+            --only-categories=performance,accessibility,seo,best-practices
+
+      - name: Upload Lighthouse JSON report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-the19-json
+          path: lighthouse-the19.json
+
+      - name: Upload Lighthouse HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-the19-html
+          path: lighthouse-the19.html
