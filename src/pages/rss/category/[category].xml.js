@@ -11,13 +11,14 @@ export async function getStaticPaths() {
 export async function GET(context) {
   const { category } = context.params;
   const posts = (await getCollection('blog')).filter((p) => slugifyCategory(p.data.category || '') === category);
-  return rss({
+    return rss({
     title: `Category: ${category}`,
     description: `Latest posts in ${category}`,
     site: context.site,
     items: posts.map((post) => ({
       ...post.data,
-      link: `/blog/${post.id}/`,
+      // Previously: link: `/blog/${post.id}/`,
+      link: `/archive/${post.id}/`,
     })),
   });
 }

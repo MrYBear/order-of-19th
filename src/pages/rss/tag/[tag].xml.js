@@ -13,13 +13,14 @@ export async function GET(context) {
   const posts = (await getCollection('blog')).filter((p) =>
     (p.data.tags || []).some((t) => slugifyTag(t) === tag)
   );
-  return rss({
+    return rss({
     title: `Tag: ${tag}`,
     description: `Latest posts tagged ${tag}`,
     site: context.site,
     items: posts.map((post) => ({
       ...post.data,
-      link: `/blog/${post.id}/`,
+      // Previously: link: `/blog/${post.id}/`,
+      link: `/archive/${post.id}/`,
     })),
   });
 }
