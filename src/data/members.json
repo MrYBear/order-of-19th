@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "member-1",
+    "name": "Member Name",
+    "nickname": "Nickname Here",
+    "image": "/images/member-1.jpg",
+    "location": "City, Country",
+    "homeClub": "Home Golf Club Name",
+    "handicap": "12",
+    "joined": "2024",
+    "quote": "A memorable quote from this member about golf or the brotherhood",
+    "bio": "Short bio that appears on The 19 card - keep this brief, 1-2 sentences.",
+    "fullBio": "This is the extended biography for the full profile page. Here you can write multiple paragraphs about their golf history, how they joined the Order, memorable rounds, their golf philosophy, background story, etc. This will only show on their individual profile page."
+  },
+  {
+    "slug": "member-2",
+    "name": "Second Member",
+    "nickname": "Nick",
+    "image": "/images/member-2.jpg",
+    "location": "Amsterdam, Netherlands",
+    "homeClub": "Amsterdam Golf Club",
+    "handicap": "8",
+    "joined": "2024",
+    "quote": "Golf is the closest game to the game we call life.",
+    "bio": "Another founding member with a passion for links golf.",
+    "fullBio": "Extended bio for second member goes here..."
+  }
+]
