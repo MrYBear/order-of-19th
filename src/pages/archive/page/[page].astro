@@ -9,13 +9,15 @@ import BlogPagination from '../../../components/ui/nav/BlogPagination.astro';
 
 export async function getStaticPaths() {
   const PAGE_SIZE = 6;
-  const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+  const allPosts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+  const [featured, ...posts] = allPosts; // Remove featured post to match index page
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
   return Array.from({ length: totalPages - 1 }, (_, i) => ({ params: { page: String(i + 2) } }));
 }
 
 const PAGE_SIZE = 6;
-const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const allPosts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const [featured, ...posts] = allPosts; // Remove featured post to match index page
 const { page } = Astro.params;
 const currentPage = Math.max(1, parseInt(page || '1', 10));
 const start = (currentPage - 1) * PAGE_SIZE;

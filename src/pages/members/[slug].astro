@@ -2,13 +2,18 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
-import members from '../../data/members.json';
 
 export async function getStaticPaths() {
-  return members.map((member) => ({
-    params: { slug: member.slug },
-    props: { member }
-  }));
+  // Import all JSON files from the members directory
+  const memberFiles = import.meta.glob('../../data/members/*.json', { eager: true });
+  
+  return Object.entries(memberFiles).map(([path, file]) => {
+    const member = (file as any).default;
+    return {
+      params: { slug: member.slug },
+      props: { member }
+    };
+  });
 }
 
 const { member } = Astro.props;
@@ -50,7 +55,7 @@ const { member } = Astro.props;
           <div class="space-y-4 text-center">
             {member.location && (
               <p class="text-gray-700 dark:text-gray-300">
-                <strong>Location:</strong> {member.location}
+                 {member.location}
               </p>
             )}
             {member.homeClub && (
@@ -65,7 +70,7 @@ const { member } = Astro.props;
             )}
             {member.joined && (
               <p class="text-gray-700 dark:text-gray-300">
-                <strong>Joined:</strong> {member.joined}
+                 {member.joined}
               </p>
             )}
             {member.quote && (
@@ -80,7 +85,9 @@ const { member } = Astro.props;
         <div class="prose prose-lg prose-invert mx-auto">
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Biography</h2>
           <div class="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-            <p>{member.fullBio}</p>
+            {member.fullBio.split('\n\n').map((paragraph: string) => (
+              <p>{paragraph}</p>
+            ))}
           </div>
         </div>
 
