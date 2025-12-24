@@ -7,18 +7,127 @@ import Footer from "../components/sections/Footer.astro";
 <!doctype html>
 <html lang="en" data-theme="dark" class="dark">
   <head>
-    <BaseHead title="The 19 - Order of the 19th" description="Meet the legendary members who shaped the game and those who carry the tradition forward." />
+    <BaseHead title="The Inner Circle | Order of the 19th" description="The Master and the Two Nines: 19 members who hold the Order's deepest knowledge across five centuries" />
+    <style>
+      .member-id {
+        font-family: 'Courier New', 'Monaco', Consolas, monospace;
+        font-weight: 400;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        padding: 0.375rem 0.875rem;
+        background: linear-gradient(135deg, rgba(184, 134, 11, 0.12) 0%, rgba(184, 134, 11, 0.06) 100%);
+        border: 2px solid rgba(184, 134, 11, 0.35);
+        border-radius: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15);
+        transition: all 0.2s ease;
+        position: relative;
+      }
+      
+      .member-id::before {
+        content: "◈";
+        font-size: 0.65rem;
+        color: #B8860B;
+        opacity: 0.7;
+        margin-right: 0.15rem;
+      }
+      
+      .member-id.front-nine::before {
+        content: "◆";
+        font-size: 0.7rem;
+        color: #B8860B;
+        opacity: 0.8;
+      }
+      
+      .member-id.back-nine::before {
+        content: "◇";
+        font-size: 0.7rem;
+        color: #B8860B;
+        opacity: 0.8;
+      }
+      
+      .member-id:hover {
+        border-color: rgba(184, 134, 11, 0.5);
+        box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
+        transform: translateY(-1px);
+      }
+      
+      .member-id-hero {
+        font-size: 1rem;
+        padding: 0.5rem 1.25rem;
+        letter-spacing: 0.15em;
+        background: linear-gradient(135deg, rgba(218, 165, 32, 0.2) 0%, rgba(184, 134, 11, 0.15) 100%);
+        border: 2.5px solid rgba(218, 165, 32, 0.5);
+        box-shadow: 0 4px 16px rgba(218, 165, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        margin-bottom: 1rem;
+      }
+      
+      .member-id-hero::before {
+        content: "✦";
+        font-size: 0.85rem;
+        color: #DAA520;
+        opacity: 0.9;
+      }
+      
+      .member-id-hero .roman {
+        color: #DAA520;
+        font-weight: 800;
+        text-shadow: 0 1px 2px rgba(218, 165, 32, 0.3);
+      }
+      
+      .member-id .roman {
+        font-weight: 800;
+        color: #B8860B;
+        text-shadow: 0 1px 2px rgba(184, 134, 11, 0.3);
+        letter-spacing: 0.08em;
+      }
+      
+      .member-id .separator {
+        color: rgba(184, 134, 11, 0.5);
+        font-weight: 400;
+      }
+      
+      .member-id .number {
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 500;
+      }
+      
+      .member-note {
+        font-size: 0.875rem;
+        font-style: italic;
+        color: var(--color-text-muted);
+        margin-top: 1rem;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <Header />
     <main class="mx-auto max-w-7xl px-4 py-12">
       
- <!-- THE HEAD OF THE ORDER - Hero Section -->
+      <!-- Page Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[color:var(--accent)]">
+          The Inner Circle
+        </h1>
+        <p class="text-xl md:text-2xl text-[color:var(--color-text)] max-w-4xl mx-auto leading-relaxed">
+          Nineteen members hold the deepest knowledge of the Order. Led by The Master, 
+          they are divided as golf divides its course: the Front 9 who carried the 
+          tradition through shadow, and the Back 9 who bring it into light.
+        </p>
+      </div>
+
+ <!-- THE MASTER - Hero Section -->
 <section class="mb-20 text-center">
-  <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[color:var(--accent)]">
-    The Head of the Order
-  </h1>
-  <p class="text-xl mb-12 text-[color:var(--color-text-secondary)] max-w-3xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[color:var(--accent)]">
+    The Master
+  </h2>
+  <p class="text-lg mb-12 text-[color:var(--color-text-secondary)] max-w-3xl mx-auto">
     Our eternal founder, whose vision and passion laid the foundation for all who follow
   </p>
   
@@ -27,6 +136,7 @@ import Footer from "../components/sections/Footer.astro";
     <img src="/images/man1800.png" alt="Master Liang" class="w-full h-full object-cover" loading="lazy" />
   </div>
   
+  <div class="member-id member-id-hero"><span class="roman">I</span><span class="separator">-</span><span class="number">1</span></div>
   <h2 class="text-3xl font-bold mb-2">Master Liang</h2>
   <p class="text-[color:var(--color-text-secondary)] mb-4">St Andrews, Scotland • 1524–1590</p>
   <p class="text-lg mb-4 text-[color:var(--accent)]">⛳ Old Course at St Andrews</p>
@@ -64,6 +174,7 @@ import Footer from "../components/sections/Footer.astro";
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
             <img src="/images/man1950.png" alt="Brother MacLaing" class="w-full h-full object-cover" loading="lazy" />
           </div>
+          <div class="member-id front-nine"><span class="roman">I</span><span class="separator">-</span><span class="number">3</span></div>
           <h3 class="text-xl font-bold mb-2">Brother MacLaing</h3>
           <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">St Andrews, Scotland • c. 1720–1779</p>
           <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Leith Links</p>
@@ -85,6 +196,7 @@ import Footer from "../components/sections/Footer.astro";
             <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
               <img src="/images/man1950.png" alt="Brother Calder" class="w-full h-full object-cover" loading="lazy" />
             </div>
+            <div class="member-id front-nine"><span class="roman">I</span><span class="separator">-</span><span class="number">5</span></div>
             <h3 class="text-xl font-bold mb-2">Brother Calder</h3>
             <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">St Andrews, Scotland • c. 1714–1781</p>
             <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ The Old Course, St Andrews</p>
@@ -106,6 +218,7 @@ import Footer from "../components/sections/Footer.astro";
             <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
               <img src="/images/man1950.png" alt="Brother Rowan" class="w-full h-full object-cover" loading="lazy" />
             </div>
+            <div class="member-id front-nine"><span class="roman">II</span><span class="separator">-</span><span class="number">12</span></div>
             <h3 class="text-xl font-bold mb-2">Brother Rowan</h3>
             <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Edinburgh, Scotland • c. 1768–1836</p>
             <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Bruntsfield Links & Musselburgh Links</p>
@@ -127,6 +240,7 @@ import Footer from "../components/sections/Footer.astro";
             <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
               <img src="/images/lady1950.png" alt="Sister Morag Fisher" class="w-full h-full object-cover" loading="lazy" />
             </div>
+            <div class="member-id front-nine"><span class="roman">II</span><span class="separator">-</span><span class="number">7</span></div>
             <h3 class="text-xl font-bold mb-2">Sister Morag</h3>
             <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Fisherrow, Musselburgh • c. 1778–1842</p>
             <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Musselburgh Links</p>
@@ -148,6 +262,7 @@ import Footer from "../components/sections/Footer.astro";
               <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <img src="/images/man1950.png" alt="Brother Shaw" class="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div class="member-id front-nine"><span class="roman">I</span><span class="separator">-</span><span class="number">2</span></div>
               <h3 class="text-xl font-bold mb-2">Brother Shaw</h3>
               <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Greenwich, England • c. 1575–1645</p>
               <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Royal Blackheath Golf Club</p>
@@ -169,6 +284,7 @@ import Footer from "../components/sections/Footer.astro";
               <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <img src="/images/man1950.png" alt="Brother Cartwright" class="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div class="member-id front-nine"><span class="roman">V</span><span class="separator">-</span><span class="number">19</span></div>
               <h3 class="text-xl font-bold mb-2">Brother Cartwright</h3>
               <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Blackwall & Calcutta • c. 1790–1860</p>
               <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Calcutta Golfing Society</p>
@@ -190,6 +306,7 @@ import Footer from "../components/sections/Footer.astro";
               <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <img src="/images/man1950.png" alt="Brother O'Donnell" class="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div class="member-id front-nine"><span class="roman">V</span><span class="separator">-</span><span class="number">34</span></div>
               <h3 class="text-xl font-bold mb-2">Brother O'Donnell</h3>
               <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">New York & Long Island, USA • 1895–1970</p>
               <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Shinnecock Hills Golf Club</p>
@@ -211,6 +328,7 @@ import Footer from "../components/sections/Footer.astro";
               <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <img src="/images/man1950.png" alt="Brother Nakamura" class="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div class="member-id front-nine"><span class="roman">XII</span><span class="separator">-</span><span class="number">58</span></div>
               <h3 class="text-xl font-bold mb-2">Brother Nakamura</h3>
               <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Kobe & Shanghai • 1910–1988</p>
               <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Kasumigaseki Country Club</p>
@@ -232,6 +350,7 @@ import Footer from "../components/sections/Footer.astro";
               <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <img src="/images/man1950.png" alt="Brother Devereux" class="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div class="member-id front-nine"><span class="roman">XVII</span><span class="separator">-</span><span class="number">147</span></div>
               <h3 class="text-xl font-bold mb-2">Brother Devereux</h3>
               <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">London & Global • 1940–2005</p>
               <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Royal St George's</p>
@@ -268,6 +387,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/lady1950.png" alt="Sister Betty Parker" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">398</span></div>
   <h3 class="text-xl font-bold mb-2">Sister Betty</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     Florida, USA • 1957–Present
@@ -291,6 +411,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/man2000.png" alt="Brother Dean McLeod" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">451</span></div>
   <h3 class="text-xl font-bold mb-2">Brother Dean</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     St Andrews, Scotland • 1980–Present
@@ -313,6 +434,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/man1950.png" alt="Brother Kenji Tanaka" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">402</span></div>
   <h3 class="text-xl font-bold mb-2">Brother Kenji</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     Tokyo &amp; Global • 1967–Present
@@ -336,6 +458,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/man2000.png" alt="Brother Alex" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">489</span></div>
   <h3 class="text-xl font-bold mb-2">Brother Alex</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     San Francisco, USA • 1978–Present
@@ -358,6 +481,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/lady2000.png" alt="Sister Isabella" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">427</span></div>
   <h3 class="text-xl font-bold mb-2">Sister Isabella</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     Milan, Italy • 1982–Present
@@ -381,6 +505,7 @@ Those Who Carry the Tradition Forward
   <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
     <img src="/images/man2000.png" alt="Brother Marcus" class="w-full h-full object-cover" loading="lazy" />
   </div>
+  <div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">502</span></div>
   <h3 class="text-xl font-bold mb-2">Brother Marcus</h3>
   <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">
     Amsterdam, Netherlands • 1975–Present
@@ -405,6 +530,7 @@ Those Who Carry the Tradition Forward
 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
 <img src="/images/man2000.png" alt="Brother Alan" class="w-full h-full object-cover" loading="lazy" />
 </div>
+<div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">412</span></div>
 <h3 class="text-xl font-bold mb-2">Brother Alan</h3>
 <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Edinburgh, Scotland • 1977–Present</p>
 <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Muirfield</p>
@@ -425,6 +551,7 @@ A historian and author who sees every round as a story waiting to unfold. His re
 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
 <img src="/images/man2000.png" alt="Brother Matthew" class="w-full h-full object-cover" loading="lazy" />
 </div>
+<div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">415</span></div>
 <h3 class="text-xl font-bold mb-2">Brother Matthew</h3>
 <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Barcelona, Spain • 1986–Present</p>
 <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Club de Golf Barcelona</p>
@@ -445,6 +572,7 @@ A dedicated member whose precision and timing on the fairways reflect deep respe
 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
 <img src="/images/man2000.png" alt="Brother Albert" class="w-full h-full object-cover" loading="lazy" />
 </div>
+<div class="member-id back-nine"><span class="roman">XIX</span><span class="separator">-</span><span class="number">413</span></div>
 <h3 class="text-xl font-bold mb-2">Brother Albert</h3>
 <p class="text-sm text-[color:var(--color-text-secondary)] mb-3">Rotterdam, Netherlands • 1981–Present</p>
 <p class="text-sm mb-3 text-[color:var(--accent)]">⛳ Rotterdamsche Golf Club</p>
@@ -461,6 +589,15 @@ A strategic thinker whose calm demeanor under pressure makes him a formidable pr
 </div>
 
 </div>
+</section>
+
+<!-- Member Code Note -->
+<section class="mb-12">
+  <div class="text-center max-w-2xl mx-auto">
+    <p class="member-note">
+      Member codes span multiple eras. The current covenant is XIX.
+    </p>
+  </div>
 </section>
 
 
