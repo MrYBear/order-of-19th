@@ -9,12 +9,20 @@ const { title = 'Blog', subtitle } = Astro.props as Props;
 
 <section class="w-full py-4">
   <div class="mx-auto max-w-5xl px-3">
-    <div class="grid items-center gap-4 md:grid-cols-2">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
         <span class="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] bg-clip-text text-transparent">{title}</span>
       </h1>
       {subtitle && (
-        <p class="text-base md:text-lg text-[color:var(--color-text-secondary)] md:text-right">{subtitle}</p>
+        <div class="flex flex-col items-start md:items-end gap-3 md:text-right">
+          <p class="text-base md:text-lg text-[color:var(--color-text-secondary)]">{subtitle}</p>
+          <a href="/submit-story" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent border-2 border-[color:var(--accent)] text-[color:var(--accent)] rounded-md hover:bg-[color:var(--accent)] hover:text-white transition-all text-sm font-semibold">
+            Share a Tale
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </a>
+        </div>
       )}
     </div>
   </div>
