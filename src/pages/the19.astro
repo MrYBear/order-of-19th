@@ -29,6 +29,11 @@ import Footer from "../components/sections/Footer.astro";
         position: relative;
       }
       
+      /* Light theme overrides for member-id */
+      [data-theme="light"] .member-id {
+        color: rgba(0, 0, 0, 0.7);
+      }
+      
       .member-id::before {
         content: "◈";
         font-size: 0.65rem;
@@ -80,6 +85,12 @@ import Footer from "../components/sections/Footer.astro";
         text-shadow: 0 1px 2px rgba(218, 165, 32, 0.3);
       }
       
+      /* Light theme overrides for hero badge */
+      [data-theme="light"] .member-id-hero .roman {
+        color: #8B6914;
+        text-shadow: 0 1px 2px rgba(139, 105, 20, 0.3);
+      }
+      
       .member-id .roman {
         font-weight: 800;
         color: #B8860B;
@@ -87,13 +98,30 @@ import Footer from "../components/sections/Footer.astro";
         letter-spacing: 0.08em;
       }
       
+      /* Light theme overrides for roman numerals */
+      [data-theme="light"] .member-id .roman {
+        color: #8B6914;
+        text-shadow: 0 1px 2px rgba(139, 105, 20, 0.3);
+      }
+      
       .member-id .separator {
         color: rgba(184, 134, 11, 0.5);
         font-weight: 400;
       }
       
+      /* Light theme overrides for separator */
+      [data-theme="light"] .member-id .separator {
+        color: rgba(139, 105, 20, 0.6);
+      }
+      
       .member-id .number {
         color: rgba(255, 255, 255, 0.75);
+        font-weight: 500;
+      }
+      
+      /* Light theme overrides for numbers */
+      [data-theme="light"] .member-id .number {
+        color: rgba(0, 0, 0, 0.8);
         font-weight: 500;
       }
       
@@ -116,9 +144,7 @@ import Footer from "../components/sections/Footer.astro";
           The Inner Circle
         </h1>
         <p class="text-xl md:text-2xl text-[color:var(--color-text)] max-w-4xl mx-auto leading-relaxed">
-          Nineteen members hold the deepest knowledge of the Order. Led by The Master, 
-          they are divided as golf divides its course: the Front 9 who carried the 
-          tradition through shadow, and the Back 9 who bring it into light.
+          Nineteen members, one Master. Divided as the course divides: nine who walked before, nine who walk among us.
         </p>
       </div>
 
@@ -353,7 +379,7 @@ import Footer from "../components/sections/Footer.astro";
 Those Who Carry the Tradition Forward
 </p>
 <p class="text-lg italic text-[color:var(--color-text-secondary)] mt-6">
-The Back Nine remain active in their duties. Their identities are known only to each other.
+The Back Nine walk among us. Their full identities remain guarded.
 </p>
 </div>
 

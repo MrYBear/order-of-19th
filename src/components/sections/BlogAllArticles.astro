@@ -11,7 +11,6 @@ const { posts = [], title = 'The Chronicles' } = Astro.props as Props;
 ---
 
 <section class="space-y-6">
-  <h2 class="text-3xl font-bold">{title}</h2>
   <div class="blog-grid">
     {posts.map((post) => (
       <PostCard post={post} />

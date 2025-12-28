@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 
-const pageTitle = "Share Your Tale";
-const pageDescription = "Share your exceptional 19th hole moments with the Order for preservation in the Tales";
+const pageTitle = "Submit Your Story";
+const pageDescription = "Submit your exceptional 19th hole moments with the Order for preservation in the Archive";
 ---
 
 <Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
@@ -22,85 +22,11 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
   <section class="w-full py-16 md:py-24">
     <div class="mx-auto max-w-4xl px-4">
       <h1 class="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#0ea472]">
-        Share Your Tale
+        Submit Your Story
       </h1>
       <p class="text-xl md:text-2xl text-center text-neutral-700 dark:text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-        Have you witnessed something exceptional at a 19th hole? Share it with the Curators for consideration
+        Every round has a story. Share yours and contribute to the living history of the 19th hole.
       </p>
-    </div>
-  </section>
-
-  <!-- What We're Looking For Section -->
-  <section class="w-full py-12 bg-neutral-50 dark:bg-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <h2 class="text-3xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-100">
-        What We're Looking For
-      </h2>
-      
-      <div class="space-y-6">
-        <!-- Item 1 -->
-        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
-          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-            Legendary Moments
-          </h3>
-          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Stories where the 19th hole became the stage for something unforgettable—a wager settled, a friendship forged, a truth revealed.
-          </p>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
-          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-            Historical Significance
-          </h3>
-          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Tales from the past that shaped the tradition—forgotten clubs, lost customs, or moments that defined what the 19th hole truly means.
-          </p>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
-          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-            Exceptional Venues
-          </h3>
-          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Discoveries of remarkable 19th holes—hidden gems, historic clubhouses, or places where the spirit of fellowship still burns bright.
-          </p>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg border-l-4 border-[#0ea472]">
-          <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-            Wisdom & Philosophy
-          </h3>
-          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Reflections on what makes the 19th hole sacred—lessons learned, traditions upheld, or insights into the deeper meaning of gathering after the round.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Submission Guidelines Callout -->
-  <section class="w-full py-8">
-    <div class="mx-auto max-w-3xl px-4">
-      <div class="p-6 md:p-8 bg-[#0ea472]/10 dark:bg-[#0ea472]/5 rounded-xl border-2 border-[#0ea472]/30">
-        <div class="flex items-start gap-4">
-          <div class="flex-shrink-0 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#0ea472]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div class="space-y-3">
-            <p class="text-base md:text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed">
-              <strong class="text-[#0ea472]">Quality over quantity.</strong> The Curators seek stories that deserve preservation—tales that will be read decades from now.
-            </p>
-            <p class="text-base md:text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed">
-              Write with care. Every submission is reviewed personally.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -108,7 +34,7 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
   <section class="w-full py-16">
     <div class="mx-auto max-w-3xl px-4">
       <h2 class="text-3xl font-bold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-        Share Your Tale
+        Submit Your Story
       </h2>
       <p class="text-center text-neutral-700 dark:text-neutral-300 mb-8">
         All fields are required unless marked optional
@@ -177,7 +103,7 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
             name="storyTitle" 
             required
             class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent"
-            placeholder="What should we call this tale?"
+            placeholder="What should we call this story?"
           />
         </div>
 
@@ -194,7 +120,7 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
           >
             <option value="">Choose a category...</option>
             <option value="legendary-moment">Legendary Moment</option>
-            <option value="historical">Historical Tale</option>
+            <option value="historical">Historical Story</option>
             <option value="venue-discovery">Exceptional Venue</option>
             <option value="wisdom">Wisdom & Philosophy</option>
             <option value="other">Other</option>
@@ -240,10 +166,10 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
             required
             rows="12"
             class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent resize-y"
-            placeholder="Tell us the tale. Write as if you're speaking at the 19th hole itself—with detail, atmosphere, and respect for the tradition."
+            placeholder="Tell us the story. Write as if you're speaking at the 19th hole itself, with detail, atmosphere, and respect for the tradition."
           ></textarea>
           <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Minimum 200 words. Take your time—quality submissions receive priority review.
+            Minimum 200 words. Take your time. Quality submissions receive priority review.
           </p>
         </div>
 
@@ -278,7 +204,7 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
               class="mt-1 h-4 w-4 text-[#0ea472] border-neutral-300 dark:border-neutral-600 rounded focus:ring-[#0ea472]"
             />
             <label for="publicationConsent" class="ml-3 text-sm text-neutral-700 dark:text-neutral-300">
-              I grant the Order permission to publish this story in the Tales, with proper credit given <span class="text-[#0ea472]">(required)</span>
+              I grant the Order permission to publish this story in The Archive, with proper credit given <span class="text-[#0ea472]">(required)</span>
             </label>
           </div>
         </div>
@@ -297,6 +223,56 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
     </div>
   </section>
 
+  <!-- Story Guidelines Section -->
+  <section class="w-full py-16 bg-white dark:bg-neutral-900">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-100">
+        What We're Looking For
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <!-- Legendary Moments -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-3">Legendary Moments</h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            The shot that defied probability. The round that broke records. The day greatness revealed itself on the course. If it belongs in golf's eternal ledger, we want to preserve it.
+          </p>
+        </div>
+
+        <!-- Historical Significance -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-3">Historical Significance</h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Stories from golf's past that shaped the game. Forgotten legends. Lost traditions. Events that changed the course of history. We are custodians of memory.
+          </p>
+        </div>
+
+        <!-- Exceptional Venues -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-3">Exceptional Venues</h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Sacred grounds where the game lives in its purest form. Courses with soul. Hidden gems known only to a devoted few. Places where every blade of grass tells a story.
+          </p>
+        </div>
+
+        <!-- Wisdom & Philosophy -->
+        <div class="p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-3">Wisdom & Philosophy</h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            The lessons golf teaches. The philosophy of the game. Stories that reveal deeper truths about honor, perseverance, and the pursuit of excellence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quality Message -->
+      <div class="p-6 bg-[#0ea472]/10 border-l-4 border-[#0ea472] rounded">
+        <p class="text-neutral-800 dark:text-neutral-200 leading-relaxed">
+          <span class="font-bold">Every story matters.</span> We review each submission personally and look for authenticity, quality of writing, and stories that embody the spirit of the 19th hole tradition.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- What Happens Next Section -->
   <section class="w-full py-12 bg-neutral-50 dark:bg-neutral-900/50">
     <div class="mx-auto max-w-4xl px-4">
@@ -306,16 +282,16 @@ const pageDescription = "Share your exceptional 19th hole moments with the Order
       
       <div class="space-y-6 text-neutral-700 dark:text-neutral-300">
         <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg">
-          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-2">Review by the Curators</h3>
+          <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-2">Personal Review</h3>
           <p class="leading-relaxed">
-            Every submission is read personally by the Order's Curators. We look for authenticity, quality of writing, and stories that embody the spirit of the 19th hole tradition.
+            Every submission is read personally. We look for authenticity, quality of writing, and stories that embody the spirit of the 19th hole tradition.
           </p>
         </div>
 
         <div class="p-6 bg-white dark:bg-neutral-800 rounded-lg">
           <h3 class="font-bold text-neutral-800 dark:text-neutral-100 mb-2">Selection for Publication</h3>
           <p class="leading-relaxed">
-            If your story is chosen, we'll contact you via email to confirm details and prepare it for publication in the Tales. Selected authors receive recognition and, if they're Associates, may be invited to advance in title.
+            We review every story personally. If your story is selected for The Archive, we'll notify you when it's published. Selected authors receive recognition and, if they're Associates, may be invited to advance in title.
           </p>
         </div>
 

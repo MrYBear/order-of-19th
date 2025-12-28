@@ -16,11 +16,8 @@ const { title = 'Blog', subtitle } = Astro.props as Props;
       {subtitle && (
         <div class="flex flex-col items-start md:items-end gap-3 md:text-right">
           <p class="text-base md:text-lg text-[color:var(--color-text-secondary)]">{subtitle}</p>
-          <a href="/submit-story" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent border-2 border-[color:var(--accent)] text-[color:var(--accent)] rounded-md hover:bg-[color:var(--accent)] hover:text-white transition-all text-sm font-semibold">
-            Share a Tale
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
+          <a href="/submit-story" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent border-2 border-[color:var(--accent)] text-[color:var(--accent)] rounded-md hover:bg-[color:var(--accent)] transition-all text-sm font-semibold" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--accent)'">
+            Submit Your Story
           </a>
         </div>
       )}
