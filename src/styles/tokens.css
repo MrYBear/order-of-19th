@@ -3,6 +3,8 @@
   /* Brand - Order of the 19th Green Theme */
   --accent: #059669;
   --accent-dark: #047857;
+  --accent-text: #047857; /* Darker for text on light backgrounds - WCAG AA compliant */
+  --accent-text-darker: #065f46; /* Even darker for very light backgrounds - WCAG AAA */
   --accent-rgb: 5, 150, 105;
 
 

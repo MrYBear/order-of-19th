@@ -1,7 +1,26 @@
+# robots.txt for Order of the 19th
+
 User-agent: *
 Allow: /
 
-# Disallow dev/preview endpoints (none by default)
+# Sitemap
+Sitemap: https://OrderXIX.com/sitemap-index.xml
 
-Sitemap: https://guihubie.com/sitemap-index.xml
+# Block AI crawlers (optional - uncomment if you want to block them)
+# User-agent: GPTBot
+# Disallow: /
 
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: Google-Extended
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# User-agent: anthropic-ai
+# Disallow: /
+
+# User-agent: Claude-Web
+# Disallow: /

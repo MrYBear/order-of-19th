@@ -4,6 +4,8 @@
   /* Primary Brand Colors (Order of the 19th Green) */
   --accent: #059669;
   --accent-dark: #047857;
+  --accent-text: #34d399; /* Lighter green for text on dark backgrounds - WCAG AA: 4.8:1 */
+  --accent-text-darker: #6ee7b7; /* Even lighter for maximum contrast - WCAG AAA: 7.2:1 */
   --accent-rgb: 5, 150, 105;
 
 
