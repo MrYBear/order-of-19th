@@ -62,33 +62,45 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 </header>
 
 <style>
-  /* Hide nav on mobile by default */
-  nav {
+  /* Mobile: hide desktop-only nav items */
+  .internal-links,
+  .social-links {
     display: none;
   }
 
-  /* Show nav when toggled on mobile */
+  /* Show nav items when mobile menu is toggled */
   nav.mobile-open {
-    display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--color-bg-primary);
-    padding: 1rem;
-    border-bottom: 1px solid var(--color-border);
-    z-index: 50;
   }
 
-  /* Always show nav on desktop */
+  nav.mobile-open .internal-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  nav.mobile-open .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+  }
+
+  /* Desktop: show all navigation items, hide hamburger */
   @media screen and (min-width: 768px) {
-    nav {
+    .internal-links,
+    .social-links {
       display: flex !important;
+    }
+    
+    nav.mobile-open .internal-links {
       flex-direction: row;
-      position: static;
+      width: auto;
       padding: 0;
-      border: none;
+    }
+
+    nav.mobile-open .social-links {
+      padding: 0;
     }
     
     #mobile-menu-toggle {

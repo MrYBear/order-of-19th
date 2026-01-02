@@ -16,7 +16,7 @@ const { title, description = "Order of the 19th" } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body>
-    <Header />
+    <Header client:load />
     <main>
       <slot />
     </main>
