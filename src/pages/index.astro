@@ -1,30 +1,22 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/sections/Footer.astro';
-import Header from '../components/sections/Header.astro';
+import Base from '../layouts/Base.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import HeroSection from '../components/sections/HeroSection.astro';
 ---
 
-<!doctype html>
-<html lang="en" data-theme="dark" class="dark">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Order of the 19th',
-      url: new URL('/', Astro.site).toString(),
-      logo: new URL('/favicon.svg', Astro.site).toString(),
-    })} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <HeroSection
-        title="Welcome to the Order of the 19th"
-        showCTA
-      />
+<Base title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Order of the 19th',
+    url: new URL('/', Astro.site).toString(),
+    logo: new URL('/favicon.svg', Astro.site).toString(),
+  })} />
+  
+  <HeroSection
+    title="Welcome to the Order of the 19th"
+    showCTA
+  />
      
       <!-- Expanded What is the Order Section -->
       <section class="py-16 max-w-4xl mx-auto px-4">
@@ -94,7 +86,4 @@ import HeroSection from '../components/sections/HeroSection.astro';
                </div>
       </section>
 
-    </main>
-    <Footer />
-  </body>
-</html>
+</Base>

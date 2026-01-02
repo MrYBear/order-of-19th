@@ -48,3 +48,62 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
                 </a>
             </div>
             <ThemeToggle />
+            
+            <!-- Mobile menu toggle button -->
+            <button id="mobile-menu-toggle" class="md:hidden" aria-label="Toggle mobile menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<style>
+  /* Hide nav on mobile by default */
+  nav {
+    display: none;
+  }
+
+  /* Show nav when toggled on mobile */
+  nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-primary);
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    z-index: 50;
+  }
+
+  /* Always show nav on desktop */
+  @media screen and (min-width: 768px) {
+    nav {
+      display: flex !important;
+      flex-direction: row;
+      position: static;
+      padding: 0;
+      border: none;
+    }
+    
+    #mobile-menu-toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobile-menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    menuButton?.addEventListener('click', () => {
+      nav?.classList.toggle('mobile-open');
+    });
+  });
+</script>

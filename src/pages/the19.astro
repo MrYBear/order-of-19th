@@ -1,102 +1,97 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/sections/Header.astro";
-import Footer from "../components/sections/Footer.astro";
+import Base from "../layouts/Base.astro";
 ---
 
-<!doctype html>
-<html lang="en" data-theme="dark" class="dark">
-  <head>
-    <BaseHead title="The Inner Circle | Order of the 19th" description="The Master and the Two Nines: 19 members who hold the Order's deepest knowledge across five centuries" />
-    <style>
-      .member-id {
-        font-family: 'Courier New', 'Monaco', Consolas, monospace;
-        font-weight: 400;
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        padding: 0.375rem 0.875rem;
-        background: linear-gradient(135deg, rgba(184, 134, 11, 0.12) 0%, rgba(184, 134, 11, 0.06) 100%);
-        border: 2px solid rgba(184, 134, 11, 0.35);
-        border-radius: 0.5rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-        margin-bottom: 0.75rem;
-        color: rgba(255, 255, 255, 0.6);
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15);
-        transition: all 0.2s ease;
-        position: relative;
-      }
-      
-      /* Light theme overrides for member-id */
-      [data-theme="light"] .member-id {
-        color: rgba(0, 0, 0, 0.7);
-      }
-      
-      .member-id::before {
-        content: "◈";
-        font-size: 0.65rem;
-        color: #B8860B;
-        opacity: 0.7;
-        margin-right: 0.15rem;
-      }
-      
-      .member-id.front-nine::before {
-        content: "◆";
-        font-size: 0.7rem;
-        color: #B8860B;
-        opacity: 0.8;
-      }
-      
-      .member-id.back-nine::before {
-        content: "◇";
-        font-size: 0.7rem;
-        color: #B8860B;
-        opacity: 0.8;
-      }
-      
-      .member-id:hover {
-        border-color: rgba(184, 134, 11, 0.5);
-        box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
-        transform: translateY(-1px);
-      }
-      
-      .member-id-hero {
-        font-size: 1rem;
-        padding: 0.5rem 1.25rem;
-        letter-spacing: 0.15em;
-        background: linear-gradient(135deg, rgba(218, 165, 32, 0.2) 0%, rgba(184, 134, 11, 0.15) 100%);
-        border: 2.5px solid rgba(218, 165, 32, 0.5);
-        box-shadow: 0 4px 16px rgba(218, 165, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        margin-bottom: 1rem;
-      }
-      
-      .member-id-hero::before {
-        content: "✦";
-        font-size: 0.85rem;
-        color: #DAA520;
-        opacity: 0.9;
-      }
-      
-      .member-id-hero .roman {
-        color: #DAA520;
-        font-weight: 800;
-        text-shadow: 0 1px 2px rgba(218, 165, 32, 0.3);
-      }
-      
-      /* Light theme overrides for hero badge */
-      [data-theme="light"] .member-id-hero .roman {
-        color: #8B6914;
-        text-shadow: 0 1px 2px rgba(139, 105, 20, 0.3);
-      }
-      
-      .member-id .roman {
-        font-weight: 800;
-        color: #B8860B;
-        text-shadow: 0 1px 2px rgba(184, 134, 11, 0.3);
-        letter-spacing: 0.08em;
-      }
+<Base title="The Inner Circle" description="The Master and the Two Nines: 19 members who hold the Order's deepest knowledge across five centuries">
+  <style>
+    .member-id {
+      font-family: 'Courier New', 'Monaco', Consolas, monospace;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      padding: 0.375rem 0.875rem;
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.12) 0%, rgba(184, 134, 11, 0.06) 100%);
+      border: 2px solid rgba(184, 134, 11, 0.35);
+      border-radius: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    /* Light theme overrides for member-id */
+    [data-theme="light"] .member-id {
+      color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .member-id::before {
+      content: "◈";
+      font-size: 0.65rem;
+      color: #B8860B;
+      opacity: 0.7;
+      margin-right: 0.15rem;
+    }
+    
+    .member-id.front-nine::before {
+      content: "◆";
+      font-size: 0.7rem;
+      color: #B8860B;
+      opacity: 0.8;
+    }
+    
+    .member-id.back-nine::before {
+      content: "◇";
+      font-size: 0.7rem;
+      color: #B8860B;
+      opacity: 0.8;
+    }
+    
+    .member-id:hover {
+      border-color: rgba(184, 134, 11, 0.5);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
+      transform: translateY(-1px);
+    }
+    
+    .member-id-hero {
+      font-size: 1rem;
+      padding: 0.5rem 1.25rem;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, rgba(218, 165, 32, 0.2) 0%, rgba(184, 134, 11, 0.15) 100%);
+      border: 2.5px solid rgba(218, 165, 32, 0.5);
+      box-shadow: 0 4px 16px rgba(218, 165, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      margin-bottom: 1rem;
+    }
+    
+    .member-id-hero::before {
+      content: "✦";
+      font-size: 0.85rem;
+      color: #DAA520;
+      opacity: 0.9;
+    }
+    
+    .member-id-hero .roman {
+      color: #DAA520;
+      font-weight: 800;
+      text-shadow: 0 1px 2px rgba(218, 165, 32, 0.3);
+    }
+    
+    /* Light theme overrides for hero badge */
+    [data-theme="light"] .member-id-hero .roman {
+      color: #8B6914;
+      text-shadow: 0 1px 2px rgba(139, 105, 20, 0.3);
+    }
+    
+    .member-id .roman {
+      font-weight: 800;
+      color: #B8860B;
+      text-shadow: 0 1px 2px rgba(184, 134, 11, 0.3);
+      letter-spacing: 0.08em;
+    }
       
       /* Light theme overrides for roman numerals */
       [data-theme="light"] .member-id .roman {
@@ -133,16 +128,8 @@ import Footer from "../components/sections/Footer.astro";
         text-align: center;
       }
     </style>
-  </head>
-  <body>
-    <Header />
-    <main class="mx-auto max-w-7xl px-4 py-12">
-      
-      <!-- Page Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[color:var(--accent)]">
-          The Inner Circle
-        </h1>
+  
+  <div class="mx-auto max-w-7xl px-4 py-12">
         <p class="text-xl md:text-2xl text-[color:var(--color-text)] max-w-4xl mx-auto leading-relaxed">
           Nineteen members, one Master. Divided as the course divides: nine who walked before, nine who walk among us.
         </p>
@@ -208,7 +195,7 @@ import Footer from "../components/sections/Footer.astro";
 
        <a href="/members/brother-maclaing" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
         </div>
@@ -227,7 +214,7 @@ import Footer from "../components/sections/Footer.astro";
             </blockquote>
            <a href="/members/brother-calder" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
           </div>
@@ -246,7 +233,7 @@ import Footer from "../components/sections/Footer.astro";
             </blockquote>
            <a href="/members/brother-rowan" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
           </div>
@@ -265,7 +252,7 @@ import Footer from "../components/sections/Footer.astro";
             </blockquote>
           <a href="/members/sister-morag" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Her Legend →</span>
 </a>
 
            </div>
@@ -285,7 +272,7 @@ import Footer from "../components/sections/Footer.astro";
 
           <a href="/members/brother-shaw" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
             </div>
@@ -305,7 +292,7 @@ import Footer from "../components/sections/Footer.astro";
 
             <a href="/members/brother-cartwright" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
             </div>
@@ -324,7 +311,7 @@ import Footer from "../components/sections/Footer.astro";
               </blockquote>
             <a href="/members/brother-odonnell" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
             </div>
@@ -343,7 +330,7 @@ import Footer from "../components/sections/Footer.astro";
               </blockquote>
             <a href="/members/brother-nakamura" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
             </div>
@@ -362,7 +349,7 @@ import Footer from "../components/sections/Footer.astro";
               </blockquote>
            <a href="/members/brother-devereux" class="block bg-[color:var(--color-card)] border border-[color:var(--color-border)] rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all hover:border-[color:var(--accent)] no-underline">
   <!-- content -->
-  <span class="text-[color:var(--accent)] hover:underline text-sm">Read Their Legend →</span>
+  <span class="text-[color:var(--accent)] hover:underline text-sm">Read His Legend →</span>
 </a>
 
             </div>
@@ -534,8 +521,6 @@ The Back Nine walk among us. Their full identities remain guarded.
 </div>
 </section>
 
-</main>
-<Footer />
-</body>
-</html>
+</div>
+</Base>
 

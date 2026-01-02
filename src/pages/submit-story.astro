@@ -313,48 +313,86 @@ const pageDescription = "Submit your exceptional 19th hole moments with the Orde
   </section>
 
   <script>
-    // Form submission handler
-    document.getElementById('storyForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    console.log('Story form script loaded');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM Content Loaded');
       
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
-      const messageDiv = document.getElementById('formMessage');
+      const form = document.getElementById('storyForm') as HTMLFormElement | null;
+      console.log('Story form element:', form);
       
-      if (!messageDiv) return;
-
-      // Show loading state
-      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      const originalText = submitButton.textContent;
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-
-      try {
-        // TODO: Replace with actual API endpoint
-        const response = await fetch('/api/submit-story', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(Object.fromEntries(formData)),
-        });
-
-        if (response.ok) {
-          messageDiv.className = 'mt-4 p-4 rounded-lg bg-[#0ea472]/10 border-2 border-[#0ea472] text-neutral-800 dark:text-neutral-200';
-          messageDiv.textContent = 'Your story has been submitted successfully. The Curators will review it with care.';
-          messageDiv.classList.remove('hidden');
-          form.reset();
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        messageDiv.className = 'mt-4 p-4 rounded-lg bg-red-50 border-2 border-red-500 text-red-800 dark:bg-red-900/20 dark:text-red-200';
-        messageDiv.textContent = 'There was an error submitting your story. Please try again or contact us directly.';
-        messageDiv.classList.remove('hidden');
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
+      if (!form) {
+        console.error('Form with id="storyForm" not found');
+        return;
       }
+      
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log('Story form submitted');
+        
+        const formData = new FormData(form);
+        const messageDiv = document.getElementById('formMessage');
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        
+        if (!messageDiv) {
+          console.error('Message div not found');
+          return;
+        }
+        
+        // Show processing message
+        messageDiv.className = 'mt-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+        messageDiv.textContent = 'Submitting your story...';
+        messageDiv.classList.remove('hidden');
+        
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Submitting...';
+        }
+        
+        try {
+          console.log('Sending story to API...');
+          
+          const response = await fetch('/api/submit-story', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              submitterName: formData.get('authorName'),
+              submitterEmail: formData.get('email'),
+              memberId: formData.get('memberId') || '',
+              storyTitle: formData.get('storyTitle'),
+              storyType: formData.get('storyType'),
+              location: formData.get('location') || '',
+              yearEra: formData.get('timeframe') || '',
+              storyContent: formData.get('storyContent'),
+              howHeard: formData.get('source'),
+              permissionGranted: formData.get('publicationConsent') === 'on',
+            }),
+          });
+          
+          console.log('Response status:', response.status);
+          const result = await response.json();
+          console.log('Response data:', result);
+          
+          if (response.ok && result.success) {
+            messageDiv.className = 'mt-4 p-4 rounded-lg bg-[#0ea472]/10 border-2 border-[#0ea472] text-neutral-800 dark:text-neutral-200';
+            messageDiv.innerHTML = '<div class="text-center"><div class="text-xl font-bold mb-2">Story Submitted Successfully!</div><div>The Curators will review it with care. If selected for publication, we\'ll notify you via email.</div></div>';
+            form.reset();
+          } else {
+            throw new Error(result.error || 'Submission failed');
+          }
+        } catch (error) {
+          console.error('Error submitting story:', error);
+          messageDiv.className = 'mt-4 p-4 rounded-lg bg-red-50 border-2 border-red-500 text-red-800 dark:bg-red-900/20 dark:text-red-200';
+          messageDiv.textContent = 'There was an error submitting your story. Please try again or contact us directly.';
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit Your Story';
+          }
+        }
+      });
     });
   </script>
 </Layout>

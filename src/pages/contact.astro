@@ -102,9 +102,10 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
         <!-- Submit Button -->
         <button 
           type="submit"
+          id="submitButton"
           class="w-full px-8 py-4 bg-[#0ea472] !text-white font-semibold rounded-lg hover:bg-[#0c8a5f] active:bg-[#0a7350] transition-colors duration-200 shadow-lg hover:shadow-xl"
         >
-          Request Admission
+          Become an Associate
         </button>
 
         <!-- Success/Error Messages -->
@@ -125,11 +126,11 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
       <ul class="space-y-3 text-neutral-700 dark:text-neutral-300 max-w-md mx-auto">
         <li class="flex items-start gap-3">
           <span class="text-[#047857] dark:text-[#34d399] mt-1">•</span>
-          <span>Your Associate's Charter (digital document)</span>
+          <span>Official certificate of association</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="text-[#047857] dark:text-[#34d399] mt-1">•</span>
-          <span>Official certificate of association</span>
+          <span>Your Associate's Charter (PDF)</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="text-[#047857] dark:text-[#34d399] mt-1">•</span>
@@ -143,37 +144,81 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
     </div>
   </section>
 
-  <!-- Temporary Form Handler Script -->
   <script>
-    document.getElementById('joinForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    console.log('Form script loaded');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM Content Loaded');
       
-      const formData = new FormData(e.target as HTMLFormElement);
-      const messageDiv = document.getElementById('formMessage');
+      const form = document.getElementById('joinForm') as HTMLFormElement | null;
+      console.log('Form element:', form);
       
-      if (!messageDiv) return;
+      if (!form) {
+        console.error('Form with id="joinForm" not found');
+        return;
+      }
       
-      // Show processing message
-      messageDiv.className = 'mt-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
-      messageDiv.textContent = 'Processing your membership...';
-      messageDiv.classList.remove('hidden');
-      
-      // TODO: Replace with actual Google Sheets integration
-      // For now, just simulate success
-      setTimeout(() => {
-        messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
-        messageDiv.textContent = 'Welcome to the Order! Check your email for your certificate and Member ID.';
-        (e.target as HTMLFormElement).reset();
-      }, 1500);
-      
-      // Log form data for now (will be replaced with Google Sheets submission)
-      console.log('Form Data:', {
-        familyName: formData.get('familyName'),
-        email: formData.get('email'),
-        certificateConsent: formData.get('certificateConsent') === 'on',
-        newsletterConsent: formData.get('newsletterConsent') === 'on',
-        timestamp: new Date().toISOString(),
-        ipAddress: 'Will be captured server-side'
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log('Form submitted');
+        
+        const formData = new FormData(form);
+        const messageDiv = document.getElementById('formMessage');
+        const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
+        
+        if (!messageDiv) {
+          console.error('Message div not found');
+          return;
+        }
+        
+        // Show processing message
+        messageDiv.className = 'mt-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
+        messageDiv.textContent = 'Processing your membership...';
+        messageDiv.classList.remove('hidden');
+        
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Processing...';
+        }
+        
+        try {
+          console.log('Sending to API...');
+          
+          const response = await fetch('/api/submit-form', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: formData.get('familyName'),
+              email: formData.get('email'),
+              topic: 'Membership Request',
+              certificateConsent: formData.get('certificateConsent') === 'on',
+              newsletterConsent: formData.get('newsletterConsent') === 'on',
+            }),
+          });
+          
+          console.log('Response status:', response.status);
+          const result = await response.json();
+          console.log('Response data:', result);
+          
+          if (response.ok && result.success) {
+            messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+            messageDiv.innerHTML = '<div class="text-center"><div class="text-xl font-bold mb-2">Welcome to the Order!</div><div>Check your email for your Member ID.</div></div>';
+            form.reset();
+          } else {
+            throw new Error(result.error || 'Submission failed');
+          }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          messageDiv.className = 'mt-4 p-4 rounded-lg bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200';
+          messageDiv.textContent = 'There was an error processing your request. Please try again.';
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Become an Associate';
+          }
+        }
       });
     });
   </script>

@@ -5,18 +5,47 @@ import { JWT } from 'google-auth-library';
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-  console.log('🔵 API endpoint /api/submit-form called');
+  console.log('🔵 API endpoint /api/submit-story called');
   
   try {
     // Parse the request body
     const body = await request.json();
-    const { name, email, topic, certificateConsent, newsletterConsent } = body;
+    const { 
+      submitterName, 
+      submitterEmail, 
+      memberId,
+      storyTitle,
+      storyType,
+      location,
+      yearEra,
+      storyContent,
+      howHeard,
+      permissionGranted
+    } = body;
     
-    console.log('📝 Received form data:', { name, email, topic, certificateConsent, newsletterConsent });
+    console.log('📝 Received story submission:', { 
+      submitterName, 
+      submitterEmail, 
+      memberId,
+      storyTitle,
+      storyType,
+      location,
+      yearEra,
+      storyContentLength: storyContent?.length,
+      howHeard,
+      permissionGranted
+    });
 
     // Validate required fields
-    if (!name || !email || !topic) {
-      console.error('❌ Missing required fields:', { name: !!name, email: !!email, topic: !!topic });
+    if (!submitterName || !submitterEmail || !storyTitle || !storyType || !storyContent || !howHeard) {
+      console.error('❌ Missing required fields:', { 
+        submitterName: !!submitterName, 
+        submitterEmail: !!submitterEmail, 
+        storyTitle: !!storyTitle,
+        storyType: !!storyType,
+        storyContent: !!storyContent,
+        howHeard: !!howHeard
+      });
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -72,38 +101,52 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('✅ Sheet loaded:', doc.title);
     console.log('📄 Available sheets:', doc.sheetsByIndex.map(s => ({ title: s.title, sheetId: s.sheetId })));
     
-    // Get the "Form Submissions" sheet by title
-    const sheet = doc.sheetsByTitle['Form Submissions'];
+    // Get the "Stories" sheet by title
+    const sheet = doc.sheetsByTitle['Stories'];
     
     if (!sheet) {
-      console.error('❌ Could not find "Form Submissions" sheet');
+      console.error('❌ Could not find "Stories" sheet');
       console.error('Available sheets:', Object.keys(doc.sheetsByTitle));
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: 'Form Submissions sheet not found' 
+          error: 'Stories sheet not found' 
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
     
-    console.log('✅ Found "Form Submissions" sheet, ID:', sheet.sheetId);
+    console.log('✅ Found "Stories" sheet, ID:', sheet.sheetId);
     
     // Load the header row before accessing headerValues
     await sheet.loadHeaderRow();
     console.log('📋 Sheet headers:', sheet.headerValues);
 
-    // Prepare row data
+    // Prepare row data matching the Stories sheet structure
+    const submissionDate = new Date().toISOString();
     const rowData = {
-      Date: new Date().toISOString(),
-      Name: name,
-      Email: email,
-      Topic: topic,
-      'Certificate Consent': certificateConsent ? 'Yes' : 'No',
-      'Newsletter Consent': newsletterConsent ? 'Yes' : 'No',
+      'Submission Date': submissionDate,
+      'Title': storyTitle,
+      'Status': 'Pending Review',
+      'Author': '', // Leave blank, to be assigned later
+      'Publish Date': '', // Leave blank
+      'URL Slug': '', // Leave blank
+      'Tags': '', // Leave blank
+      'Submitter Name': submitterName,
+      'Submitter Email': submitterEmail,
+      'Member ID': memberId || '',
+      'Story Type': storyType,
+      'Location': location || '',
+      'Year/Era': yearEra || '',
+      'Story Content': storyContent,
+      'How Heard': howHeard,
+      'Permission Granted': permissionGranted ? 'Yes' : 'No',
     };
     
-    console.log('➕ Adding row:', rowData);
+    console.log('➕ Adding row to Stories sheet:', {
+      ...rowData,
+      'Story Content': `${storyContent.substring(0, 100)}... (${storyContent.length} chars)`
+    });
 
     // Add a new row with timestamp
     const addedRow = await sheet.addRow(rowData);
@@ -113,13 +156,13 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Form submitted successfully' 
+        message: 'Story submitted successfully' 
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
 
   } catch (error) {
-    console.error('❌ Error submitting to Google Sheets:', error);
+    console.error('❌ Error submitting story to Google Sheets:', error);
     console.error('Error details:', {
       name: error instanceof Error ? error.name : 'Unknown',
       message: error instanceof Error ? error.message : String(error),
@@ -129,7 +172,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({ 
         success: false, 
-        error: error instanceof Error ? error.message : 'Failed to submit form'
+        error: error instanceof Error ? error.message : 'Failed to submit story'
       }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
