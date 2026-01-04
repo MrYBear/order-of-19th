@@ -1,0 +1,10 @@
+Start 
+
+tailscale funnel -bg 5678
+
+Stop
+
+tailscale funnel --https=443 off
+
+
+https://tslc-895.tail7f2080.ts.net/
