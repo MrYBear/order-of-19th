@@ -9,13 +9,10 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://OrderXIX.com',
+  output: 'server',  
   adapter: netlify(),
-  integrations: [
-    mdx(), 
-    sitemap()
-  ],
+  integrations: [mdx(), sitemap()],
   vite: {
-    // @ts-ignore
     plugins: [tailwindcss()],
   },
 });
