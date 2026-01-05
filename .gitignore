@@ -29,5 +29,3 @@ google-credentials.json
 # Local Netlify folder
 .netlify
 
-{"web":{"client_id":"485201423646-aeaj58kfrhacqsrvreqeejs9qsiuo8fv.apps.googleusercontent.com","project_id":"order-xix-website","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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","redirect_uris":["https://tslc-895.tail7f2080.ts.net/rest/oauth2-credential/callback"]}}
-
