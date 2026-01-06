@@ -6,6 +6,8 @@ import Footer from '../../../components/sections/Footer.astro';
 import PostCard from '../../../components/ui/card/PostCard.astro';
 import { slugifyTag as slugify } from '../../../lib/slug';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const authorSlugs = [

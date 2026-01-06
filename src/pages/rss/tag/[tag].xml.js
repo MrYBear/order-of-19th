@@ -2,6 +2,8 @@ import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import { slugifyTag } from '../../../../src/lib/slug';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];

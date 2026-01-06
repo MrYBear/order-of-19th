@@ -2,6 +2,8 @@ import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import { slugifyCategory } from '../../../../src/data/categories';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const categories = [...new Set(posts.map((p) => p.data.category).filter(Boolean))];

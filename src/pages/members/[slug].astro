@@ -3,6 +3,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   // Import all JSON files from the members directory
   const memberFiles = import.meta.glob('../../data/members/*.json', { eager: true });
