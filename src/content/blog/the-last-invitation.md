@@ -2,6 +2,7 @@
 title: 'The Last Invitation'
 description: 'Brother Devereux spent sixty years collecting the stories that shaped history. Now, in the twilight of his years, he opens the doors and places them in our hands. This is his final call to tend the flame.'
 pubDate: 2026-01-01T12:02:00
+heroImage: '../../assets/images/Blog_Dever.jpeg'
 author: 'sister-betty'
 tags: ['history', 'england', 'front-9']
 ---
