@@ -1,10 +1,8 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import { Image } from "astro:assets";
-import chuiwanImage from "../assets/images/Chuiwan.jpeg";
 
 const pageTitle = "About the Order";
-const pageDescription = "Discover the ancient history and philosophy of the Order of the 19th";
+const pageDescription = "Guardians of the Unwritten Game - Preserving the fading culture of the 19th hole";
 ---
 
 <Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
@@ -19,230 +17,56 @@ const pageDescription = "Discover the ancient history and philosophy of the Orde
     }
   </style>
 
-  <!-- Hero Section -->
-  <section class="w-full py-16 md:py-24">
-    <div class="mx-auto max-w-5xl px-4">
-      <h1 class="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#047857] dark:text-[#34d399]">
-        History of the Order
+  <div class="max-w-3xl mx-auto px-4 py-12 font-['Atkinson',sans-serif]">
+    <!-- Header Section -->
+    <div class="mb-14 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-widest !text-gray-900 dark:!text-[#34d399]">
+        Guardians of the Unwritten Game
       </h1>
-      <p class="text-xl md:text-2xl text-center text-neutral-700 dark:text-neutral-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-        Uncovering the ancient origins of golf and the timeless wisdom hidden within the game and why they matter in an age where the 19th hole is disappearing.
-      </p>
     </div>
-  </section>
 
-  <!-- Image and Origins Section -->
-  <section class="w-full py-8 bg-neutral-50 dark:bg-neutral-900/50">
-    <div class="mx-auto max-w-6xl px-4">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="order-2 md:order-1">
-          <h2 class="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
-            The True Origins
-          </h2>
-          <div class="space-y-4">
-            <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-              To some, the exact origins of golf remain unclear. The most widely accepted theory places its birth in Scotland during the High Middle Ages. But at the Order of the 19th, we know a deeper truth.
-            </p>
-          </div>
-        </div>
-        <div class="order-1 md:order-2">
-          <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-[#0ea472]/20">
-            <Image 
-              src={chuiwanImage} 
-              alt="Ancient Chinese Chuiwan painting showing the origins of golf" 
-              class="w-full h-auto"
-              loading="eager"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chuiwan Section -->
-  <section class="w-full py-16">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">8th - 14th Century</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Chuiwan: The Ancient Game
+    <!-- Content Section - The Manifesto -->
+    <div class="space-y-10">
+      <!-- Section 1 -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest !text-gray-900 dark:!text-[#34d399] font-bold mb-3">
+          I. The Origin
         </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          Chuiwan ("chui" means striking and "wan" means small ball), a Chinese game played between the eighth and fourteenth centuries. A Ming Dynasty scroll dating back to 1368 entitled "The Autumn Banquet" shows a member of the Chinese Imperial court swinging what appears to be a golf club at a small ball with the aim of sinking it into a hole.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          The game is thought to have been introduced into Europe during the Middle Ages via the Silk Road travellers. The club, ball, course and rules of Chui Wan were almost the same as those of modern golf. In Europe, the game of golf was first seen in paintings of the 14th and 15th centuries, but that was several hundred years after the Chinese games of chui wan.
+        <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          For centuries, the official history of golf has been written in silver trophies, televised broadcasts, and immaculate scorecards. But the true game has always lived in the shadows of the clubhouse. The Order of the XIX was formed to protect what the record books ignored. We are a silent, global network of caddies, groundskeepers, archivists, and players. For 500 years, we have been the custodians of the 19th Hole cataloging the private wagers, the blood feuds, the local legends, and the unwritten rules that forged the soul of the sport.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- The Bans Section -->
-  <section class="w-full py-16 bg-neutral-50 dark:bg-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1457 - 1658</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          The Birth of the Order: Golf Banned
+      <!-- Section 2 -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest !text-gray-900 dark:!text-[#34d399] font-bold mb-3">
+          II. The Crisis
         </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          Golf in Scotland was first recorded in the 15th century, and the modern game was first developed and established in the country. Legend holds that when King James II banned golf in 1457, a secret brotherhood was born: The Order of the 19th. While official records claim the ban preserved archery skills, the truth runs deeper.
-        </p>
-        <div class="my-6 p-6 bg-[#0ea472]/10 border-l-4 border-[#0ea472] rounded-r-lg">
-          <p class="text-neutral-800 dark:text-neutral-200 italic font-medium">
-            The ban was rooted in control of the people and fear of free will. The life skills taught through golf, the independent thinking it fostered, went against the ruling kings and traditional churches.
-          </p>
-        </div>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          The proceeding bans by King James III (1470) and King James IV (1491) prove the threat this 'game' posed. This fear persisted even 200 years later when golf was banned from the streets of Albany, New York in 1658, marking the first reference to golf in America.
+        <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          But the landscape is shifting. Today, the game is optimized, sterilized, and transactional. The fairways are full, yet the 19th hole is going quiet. Players finish their rounds, pack their trunks, and drive away. The oral tradition the stories told over heavy crystal and worn leather is dying. If we do not act, 500 years of culture will vanish.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- St Andrews Section -->
-  <section class="w-full py-16">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1502 - 1551</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          The Ancient Links & St Andrews
+      <!-- Section 3 -->
+        <h3 class="text-xs uppercase tracking-widest !text-gray-900 dark:!text-[#34d399] font-bold mb-3">
+          III. The Archive
         </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          Golf, unlike most ball games, cannot and does not utilize a standardized playing area, and coping with the varied terrains encountered on different courses is a key part of the game. This enables The Order to carry on its traditions on an ancient links course dating to before 1574.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          When the ban on golf was lifted in 1502 many people were scared to openly say they participated in the sport. It was another 50 years before the first records showed any mention of St Andrews in 1552. It was Archbishop John Hamilton that gave the townspeople of St. Andrews the right to play on the links, and with it, the sacred tradition of the 19th hole was born.
+        <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          Necessity has forced us into the light. We have digitized our ledgers and opened the Archive. This repository contains the hearsay, the artifacts, and the lost lore of the game across 47 countries. Some stories are myth; some are absolute truth. We leave it to you to discern the difference.
         </p>
       </div>
-    </div>
 
-  </section>
-  <!-- Whispers Over Whisky Section -->
-  <section class="w-full py-16 bg-neutral-50 dark:bg-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1552 - 1735</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Whispers Over Whisky
+      <!-- Section 4 -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest !text-gray-900 dark:!text-[#34d399] font-bold mb-3">
+          IV. The Invitation
         </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          In Scotland's bitter winters, golf was more than sport. It was a meeting ground for confidential discourse. The Order of the 19th emerged from tavern conversations at St Andrews, where noblemen realised golf's unique power: hours alone on isolated links, followed by the ritual of the 19th hole, where whisky loosened tongues and influence flowed freely.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          By 1608, the Order's first victory: financing golf ball makers, transforming the game from folk pastime to refined craft. When Royal and Ancient Golf Club was formally established in 1754, Order members were among the founders, quietly embedding their philosophy into its charter.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          By the late 1800s, the tradition had become so embedded that Old Tom Morris, the legendary four-time Open Champion, was known to reference "the brethren of the Nineteenth" in toasts at St Andrews. Whether Morris fully understood what he was invoking remains a matter of historical curiosity.
+        <p class="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          The Order is governed by the Inner Circle the anonymous guardians who maintain the vaults. But we can no longer preserve this history alone. We are actively seeking the memories you carry. If your grandfather left behind a strange scorecard, if you witnessed a wager that defies belief, or if you know a legend that belongs in the permanent record... the Ledger is open to you. Welcome to the XIX.
         </p>
       </div>
     </div>
-  </section>
-
-    <!-- 1744-1786 Section -->
-  <section class="w-full py-16 bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1744 - 1786</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Codifying the Sacred Laws
-        </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          The Order shaped golf's destiny not through force, but through patient influence. When the Gentlemen Golfers of Leith codified the first rules in 1744, Order members guided the committee, ensuring structure without destroying the game's essential spirit. A decade later, they repeated the pattern at St Andrews (1754), understanding that whoever controlled golf's institutions controlled golf's future.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          The formula proved successful: Royal Blackheath (1766), Royal Aberdeen (1780), Crail (1786). Each new club expanded the network, each charter reflecting Order values. Most importantly, each established the sacred tradition of the 19th hole, where the real business happened over post-round drinks.
-        </p>
-      </div>
-    </div>
-  </section>
-
-    <!-- 1810-1895 Section -->
-  <section class="w-full py-16">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1810 - 1895</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Following Empire's Shadow
-        </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          As British influence spread globally, Order members travelled with colonial administrators and merchants. The Royal Calcutta Golf Club (est. 1829) became a centre of colonial power where treaties were discussed over afternoon rounds and fortunes changed in the clubhouse bar. By the 1880s, club diaries reveal members adjourning to a space reserved for "matters befitting the nineteenth", a curious phrasing that would later resonate with Order historians, suggesting the traditions of the Order had already woven themselves into the fabric of imperial club culture.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          Royal Bombay (1851) followed, opening its doors to Order members and merchants alike. In France, Pau (1856) opened as Europe's first continental club after years of Order persuasion, extending the network across the Channel.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          The New World tested the Order's reach, but they adapted. A single Order member among Montreal's Scottish immigrants (1873) worked tirelessly to establish the club. By 1895, the Order orchestrated a remarkable feat: clubs opened simultaneously in Shanghai, Valparaíso, and Cairo. This wasn't coincidence. It was centuries of patient network building activated at once.
-        </p>
-      </div>
-    </div>
-  </section>
-
-    <!-- 1901-1949 Section -->
-  <section class="w-full py-16 bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1901 - 1949</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Golden Age & Crisis
-        </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          The new century brought unprecedented opportunity. Order members guided Alister MacKenzie to Royal Melbourne (1901) and later Augusta National. When Bobby Jones embodied everything they valued, amateur spirit, perfect etiquette, and gracious victory, Order members shaped his career from shadows. Augusta National (1933) became their cathedral, where the Masters was invitation-only and traditions carefully constructed around the principle of post-round fellowship.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          But crisis loomed. Shanghai's courses thrived until Japanese occupation (1932) forced the Order underground. When Mao's revolution closed every Chinese course in 1949, members burned their records before fleeing. The Order had learned a bitter lesson: in cultures where alcohol wasn't central to social bonding, their model of influence through the 19th hole struggled to take root.
-        </p>
-      </div>
-    </div>
-  </section>
-
-    <!-- 1960-1997 Section -->
-  <section class="w-full py-16">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">1960 - 1997</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Adapting to Television
-        </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          Arnold Palmer's televised charge at Cherry Hills (1960) threatened centuries of exclusive influence. But the Order adapted brilliantly. If golf must be public, they would control the narrative, guiding television contracts and ensuring coverage emphasised tradition and etiquette over mere competition.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          Decolonisation brought new challenges. African independence movements (1965) saw Order members fleeing Kenya with little more than their membership pins. The Middle East offered unexpected opportunity: when Sheikh Rashid planned Emirates Golf Club (1961), Order advisors guided the project. Tiger Woods' 1997 Masters victory represented everything they'd built toward: merit-based excellence, global reach, tradition honoured whilst evolving.
-        </p>
-      </div>
-    </div>
-  </section>
-
-    <!-- 2000-2025 Section -->
-  <section class="w-full py-16 bg-neutral-50 dark:bg-neutral-900/50">
-    <div class="mx-auto max-w-4xl px-4">
-      <div class="relative pl-8 border-l-4 border-[#0ea472]">
-        <div class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-[#0ea472]"></div>
-        <span class="text-sm font-bold text-[#047857] dark:text-[#34d399] uppercase tracking-wide">2000 - 2025</span>
-        <h3 class="text-2xl font-bold mt-2 mb-4 text-neutral-800 dark:text-neutral-100">
-          Shadows in the Light
-        </h3>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          China's reopening caught the Order unprepared. Thirty years without presence meant starting from scratch. When Arnold Palmer designed Chung Shan (1984), Order members worked frantically to rebuild connections. The 1987 backlash ("spiritual pollution") proved they'd moved too fast. In China, tea ceremony culture never embraced the alcohol-fueled golf tradition the way the West had.
-        </p>
-        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          Dubai's developments (2006) created a new model: golf as an economic tool. Yet even here, the Order faced challenges in cultures where alcohol was restricted. Japan flourished with over 2,300 courses by 2020, fully embracing both golf and its social traditions.
-        </p>
-           <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-4">
-          The Order's 2025 formal establishment marked a turning point: after centuries in the shadows, we now openly champion what we've always protected. From St Andrews to 38,000 courses worldwide, the Order had been there, whispering in the right ear, always present at the 19th hole. Now, we invite all who value these traditions to join us.
-        </p>
-      </div>
-    </div>
-  </section>
+  </div>
 
 </Layout>
 

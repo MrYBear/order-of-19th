@@ -1,17 +1,12 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Base.astro';
 
 const pageTitle = "Join the Order";
 const pageDescription = "Become an Associate of the Order of the 19th and join a brotherhood united by tradition";
 ---
 
-<Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
+<Layout title={pageTitle} description={pageDescription}>
   <style is:global>
-    /* Hide the ShareButtons and PostMeta */
-    .prose > div:first-child,
-    .prose > div:nth-child(2) {
-      display: none !important;
-    }
     /* Hide the footer on this page */
     footer#contact {
       display: none !important;

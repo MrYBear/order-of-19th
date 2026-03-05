@@ -8,10 +8,17 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://OrderXIX.com',
+  site: 'https://orderxix.com',
   output: 'server',  
   adapter: netlify(),
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(), 
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    })
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
