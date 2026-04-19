@@ -31,7 +31,7 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
   <section class="w-full py-8">
     <div class="mx-auto max-w-xl px-4">
       <!-- Form -->
-      <form id="joinForm" class="space-y-6 p-8 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl">
+      <form id="join-form" class="space-y-6 p-8 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl">
         <!-- Family Name -->
         <div>
           <label for="familyName" class="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200">
@@ -39,7 +39,7 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
           </label>
           <input 
             type="text" 
-            id="familyName" 
+            id="family-name-input" 
             name="familyName" 
             required
             class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent"
@@ -54,7 +54,7 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
           </label>
           <input 
             type="email" 
-            id="email" 
+            id="email-input" 
             name="email" 
             required
             class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:ring-2 focus:ring-[#0ea472] focus:border-transparent"
@@ -106,6 +106,12 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
         <!-- Success/Error Messages -->
         <div id="formMessage" class="hidden mt-4 p-4 rounded-lg"></div>
       </form>
+
+      <!-- Success Message -->
+      <div id="success-message" class="hidden mt-8 p-8 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl text-center">
+        <div class="text-2xl font-bold text-[#047857] dark:text-[#34d399] mb-4">Transmission sent.</div>
+        <div class="text-lg text-neutral-700 dark:text-neutral-300">Check your inbox.</div>
+      </div>
     </div>
   </section>
 
@@ -140,82 +146,73 @@ const pageDescription = "Become an Associate of the Order of the 19th and join a
   </section>
 
   <script>
-    console.log('Form script loaded');
+    import { supabase } from '../lib/Supabase.js';
+
+    const form = document.getElementById('join-form') as HTMLFormElement | null;
+    const successMessage = document.getElementById('success-message');
+    const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
     
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('DOM Content Loaded');
-      
-      const form = document.getElementById('joinForm') as HTMLFormElement | null;
-      console.log('Form element:', form);
-      
-      if (!form) {
-        console.error('Form with id="joinForm" not found');
-        return;
-      }
+    if (!form) {
+      console.error('Form not found');
+    } else {
+      console.log('Form found, attaching event listener');
       
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
+        console.log('Form submission intercepted');
         
-        const formData = new FormData(form);
-        const messageDiv = document.getElementById('formMessage');
-        const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
+        const emailInput = document.getElementById('email-input') as HTMLInputElement;
+        const familyNameInput = document.getElementById('family-name-input') as HTMLInputElement;
         
-        if (!messageDiv) {
-          console.error('Message div not found');
+        if (!emailInput || !familyNameInput) {
+          console.error('Input fields not found');
           return;
         }
         
-        // Show processing message
-        messageDiv.className = 'mt-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
-        messageDiv.textContent = 'Processing your membership...';
-        messageDiv.classList.remove('hidden');
+        const userEmail = emailInput.value;
+        const userFamilyName = familyNameInput.value;
         
+        console.log('Sending magic link to:', userEmail, 'for:', userFamilyName);
+        
+        // Disable submit button
         if (submitButton) {
           submitButton.disabled = true;
           submitButton.textContent = 'Processing...';
         }
         
         try {
-          console.log('Sending to API...');
-          
-          const response = await fetch('/api/submit-form', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: formData.get('familyName'),
-              email: formData.get('email'),
-              topic: 'Membership Request',
-              certificateConsent: formData.get('certificateConsent') === 'on',
-              newsletterConsent: formData.get('newsletterConsent') === 'on',
-            }),
+          const { error } = await supabase.auth.signInWithOtp({
+            email: userEmail,
+            options: {
+              data: {
+                family_name: userFamilyName
+              }
+            }
           });
           
-          console.log('Response status:', response.status);
-          const result = await response.json();
-          console.log('Response data:', result);
-          
-          if (response.ok && result.success) {
-            messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
-            messageDiv.innerHTML = '<div class="text-center"><div class="text-xl font-bold mb-2">Welcome to the Order!</div><div>Check your email for your Member ID.</div></div>';
-            form.reset();
+          if (error) {
+            console.error('Supabase error:', error);
+            alert('Error sending magic link. Please try again.');
           } else {
-            throw new Error(result.error || 'Submission failed');
+            console.log('Magic link sent successfully');
+            // Hide form and show success message
+            form.classList.add('hidden');
+            if (successMessage) {
+              successMessage.classList.remove('hidden');
+            }
           }
         } catch (error) {
-          console.error('Error submitting form:', error);
-          messageDiv.className = 'mt-4 p-4 rounded-lg bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200';
-          messageDiv.textContent = 'There was an error processing your request. Please try again.';
+          console.error('Error:', error);
+          alert('An unexpected error occurred. Please try again.');
         } finally {
+          // Re-enable submit button
           if (submitButton) {
             submitButton.disabled = false;
             submitButton.textContent = 'Become an Associate';
           }
         }
       });
-    });
+    }
   </script>
 </Layout>
 

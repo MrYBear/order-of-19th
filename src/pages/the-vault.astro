@@ -1,12 +1,42 @@
 ---
 import Layout from '../layouts/Base.astro';
 import Button from '../components/ui/button/Button.astro';
+import { supabase } from '../lib/Supabase.js';
 
 const pageTitle = "The Vault";
 const pageDescription = "Access the sealed archives of the Order of the 19th";
 
-// Mock authentication - will be replaced with Supabase session check
-const isAuthenticated = true;
+// Get the current session
+const { data: { session } } = await supabase.auth.getSession();
+
+let familyName = null;
+
+// If authenticated, sync user to members table
+if (session) {
+  const { id, email } = session.user;
+  familyName = session.user.user_metadata?.family_name || null;
+  
+  console.log('User session found:', { id, email, familyName });
+  
+  // Upsert user into members table
+  const { error: upsertError } = await supabase
+    .from('members')
+    .upsert({ 
+      id: id, 
+      email: email, 
+      family_name: familyName 
+    }, { 
+      onConflict: 'id' 
+    });
+  
+  if (upsertError) {
+    console.error('Error syncing user to members table:', upsertError);
+  } else {
+    console.log('User synced to members table successfully');
+  }
+}
+
+const isAuthenticated = !!session;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -133,7 +163,7 @@ const isAuthenticated = true;
           </h1>
           
           <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            Welcome to the Archives. Below are the unsealed records, submitted memories, and protected lore of the Order.
+            {familyName ? `Welcome, Associate ${familyName}.` : 'Welcome to the Archives.'} Below are the unsealed records, submitted memories, and protected lore of the Order.
           </p>
         </div>
 
