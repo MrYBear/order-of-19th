@@ -1,7 +1,7 @@
 ---
 title: 'The Invisible Hole: Architecture of the Unseen'
 description: 'In 1764, Brother Calder tried to build what no architect could draw—a room for the stories that happen after the game. His nineteenth hole was real, until it wasn''t.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-03-18T08:55:00
 author: 'sister-betty'
 tags: ['history', 'scotland', 'front-9']
 ---

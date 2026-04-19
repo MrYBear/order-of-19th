@@ -1,7 +1,7 @@
 ---
 title: 'Bridges of Leith: The Art of Finishing Properly'
 description: 'At Leith Links in 1744, Brother MacLaing discovered that the real game begins when the scorecard ends. This is the story of how rivalry became ritual.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-03-07T15:22:00
 author: 'sister-betty'
 tags: ['history', 'scotland', 'front-9']
 ---

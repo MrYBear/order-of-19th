@@ -1,7 +1,7 @@
 ---
 title: 'The First Cart: How the 19th Began'
 description: 'Master Liang never played the game, but on a frozen winter day in 1558, a lost ball and a two-wheeled cart changed everything. This is the story of how the nineteenth hole was born.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-02-05T11:27:00
 author: 'sister-betty'
 tags: ['history', 'scotland', 'founder']
 ---

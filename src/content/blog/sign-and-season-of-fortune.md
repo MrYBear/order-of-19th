@@ -1,7 +1,7 @@
 ---
 title: 'The Sign and the Season of Fortune'
 description: 'In 1744, Brother MacLaing moved a sign and redirected the nineteenth hole to his own door. For one glorious season, every story ended at his fire—until greed caught up with him.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-01-30T14:08:00
 author: 'sister-betty'
 tags: ['history', 'scotland', 'front-9']
 ---

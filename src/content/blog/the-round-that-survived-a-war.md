@@ -1,7 +1,7 @@
 ---
 title: 'The Round That Survived a War'
 description: 'In Kobe, 1938, Brother Nakamura witnessed two men play through the gathering storm. No wagers, no cheers—only silence, sake, and the ritual that endures when worlds burn.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-03-29T18:44:00
 author: 'sister-betty'
 tags: ['history', 'japan', 'front-9']
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'The Long Island Hustle: Where Champions Came to Drink'
 description: 'At Shinnecock Hills in 1932, Brother O''Donnell ran a back room where pros, millionaires, and caddies sealed their fates. The majors made golf loud, but his bar made it legendary.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-02-27T13:48:00
 author: 'sister-betty'
 tags: ['history', 'america', 'front-9']
 ---

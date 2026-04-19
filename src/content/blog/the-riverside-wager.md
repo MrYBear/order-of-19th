@@ -1,7 +1,7 @@
 ---
 title: 'The Riverside Wager: When Blackheath Found Its Voice'
 description: 'Brother Shaw brought the nineteenth hole to Greenwich in 1608, turning a royal heath into a gathering place where ale flowed as freely as ambition.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-01-23T09:12:00
 author: 'sister-betty'
 tags: ['history', 'england', 'front-9']
 ---

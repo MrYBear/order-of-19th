@@ -1,7 +1,7 @@
 ---
 title: 'The Day GOLF Got Its Name'
 description: 'Sister Morag Fisher stepped onto Musselburgh Links with a creel on her back and a borrowed club in hand. By the time she walked off, she had rewritten the rules—and the legend.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-03-23T19:41:00
 author: 'sister-betty'
 tags: ['history', 'scotland', 'front-9']
 ---

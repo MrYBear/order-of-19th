@@ -1,7 +1,7 @@
 ---
 title: 'The Tiger on the Maidan: Golf''s Fiercest Hazard'
 description: 'Brother Cartwright witnessed golf meet its match on the Calcutta maidan in 1832. Stripes, teeth, and a wager that nearly ended in blood—this is how the nineteenth came to India.'
-pubDate: 2026-01-01T12:01:00
+pubDate: 2026-02-14T10:37:00
 author: 'sister-betty'
 tags: ['history', 'india', 'front-9']
 ---
